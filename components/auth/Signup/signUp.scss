@@ -1,0 +1,244 @@
+
+.registerMain {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.registerMain .mainContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+}
+
+.registerMain .mainContainer .leftIllustration {
+    width: 45%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.registerMain .mainContainer .leftIllustration .mainIllustration {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    height: auto;
+    width: 80%;
+}
+
+.registerMain .mainContainer .leftIllustration .mainIllustration img{
+    height: 100%;
+    width: 100%;
+}
+
+.registerMain .mainContainer .rightContainer {
+    width: 55%;
+    background: purple;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.registerMain .mainContainer .rightContainer .heading img {
+    height: 100px;
+    width: auto;
+}
+
+.registerMain .mainContainer .rightContainer .heading h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer {
+    margin: 40px 0;
+    width: 20rem;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form label {
+    position: absolute;
+    font-size: 0.8rem;
+    font-weight: 500;
+    pointer-events: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    letter-spacing: 0.6px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #c4c4c4;
+    top: 18px !important;
+    left: 8px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form input {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 8px 0 40px 0;
+    border: none;
+    border-bottom: 4px solid #470047;
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    padding: 3% 2%;
+    cursor: text;
+    background: rgba(104, 0, 104, 0.479);
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form input:focus {
+    outline: none;
+    border-bottom: 4px solid #f805e4;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form input:focus+label,
+.registerMain .mainContainer .rightContainer .formContainer form input:focus-within+label {
+    top: -18px !important;
+    color: #ff9af2;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .div {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:focus+label,
+.registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:focus-within+label,
+.registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:not([value=""])+label {
+    top: -18px !important;
+    color: #ff9af2;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .emailContainer,
+.registerMain .mainContainer .rightContainer .formContainer form .emailContainer input:focus-within+label,
+.registerMain .mainContainer .rightContainer .formContainer form .emailContainer input:not([value=""])+label {
+    top: -18px !important;
+    color: #ff9af2;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .passwordContainer,
+.registerMain .mainContainer .rightContainer .formContainer form .passwordContainer input:focus-within+label,
+.registerMain .mainContainer .rightContainer .formContainer form .passwordContainer input:not([value=""])+label {
+    top: -18px !important;
+    color: #ff9af2;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer,
+.registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer input:focus-within+label,
+.registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer input:not([value=""])+label {
+    top: -18px !important;
+    color: #ff9af2;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .submitBtn {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 10rem;
+    padding: 2%;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: #1f1f1f;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .submitBtn:hover {
+    background: black;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .googleBtn,
+.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn {
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .googleBtn svg,
+.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn svg {
+    font-size: 2.4rem;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    color: #3b003b;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .googleBtn svg:hover {
+    color: #a72c00;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn svg:hover {
+    color: #0000bd;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer p {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer p a {
+    color: blue;
+    position: relative;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer p a::after {
+    position: absolute;
+    content: "";
+    bottom: -4px;
+    left: 4px;
+    height: 2px;
+    width: 100%;
+    background: blue;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.registerMain .mainContainer .rightContainer .formContainer p a:hover::after {
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}

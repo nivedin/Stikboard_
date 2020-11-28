@@ -1,0 +1,233 @@
+.loginMain {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loginMain .mainContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.loginMain .mainContainer .leftContainer {
+  width: 40%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginMain .mainContainer .leftContainer .leftMainImg {
+  height: auto;
+  width: 65%;
+}
+
+.loginMain .mainContainer .leftContainer .leftMainImg img {
+  height: 100%;
+  width: 100%;
+}
+
+.loginMain .mainContainer .rightContainer {
+  padding-top: 80px;
+  width: 60%;
+  background: purple;
+  text-align: center;
+}
+
+.loginMain .mainContainer .rightContainer .heading img {
+  height: 100px;
+  width: auto;
+}
+
+.loginMain .mainContainer .rightContainer .heading h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer {
+  margin: 30px 0;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form {
+  width: 20rem;
+  margin: 0 auto;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form label {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 500;
+  pointer-events: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  letter-spacing: 0.6px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #c4c4c4;
+  top: 18px !important;
+  left: 8px;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form input {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 5px 0 30px 0;
+  border: none;
+  border-bottom: 4px solid #470047;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  padding: 3% 2%;
+  cursor: text;
+  background: rgba(104, 0, 104, 0.479);
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form input:focus {
+  outline: none;
+  border-bottom: 4px solid #f805e4;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .emailContainer {
+  position: relative;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .emailContainer input:focus + label,
+.loginMain .mainContainer .rightContainer .formContainer form .emailContainer input:focus-within + label,
+.loginMain .mainContainer .rightContainer .formContainer form .emailContainer input:not([value=""]) + label {
+  top: -18px !important;
+  color: #ff9af2;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .passwordContainer {
+  position: relative;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .passwordContainer input:focus + label,
+.loginMain .mainContainer .rightContainer .formContainer form .passwordContainer input:focus-within + label,
+.loginMain .mainContainer .rightContainer .formContainer form .passwordContainer input:not([value=""]) + label {
+  top: -18px !important;
+  color: #ff9af2;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .loginBtn {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 10rem;
+  padding: 2%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 1.8px;
+  background: #202020;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .loginBtn:hover {
+  background: black;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .socialLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .socialLogin button {
+  margin-right: 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 2rem;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .socialLogin button svg {
+  color: #4d004d;
+  -webkit-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .socialLogin .googleBtn svg:hover {
+  color: #a72c00;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .socialLogin .facebookBtn svg:hover {
+  color: #0000bd;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .forgetLink {
+  margin: 20px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #00007a;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .signLink {
+  color: white;
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .signLink a {
+  color: #000085;
+  position: relative;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .signLink a::after {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 2px;
+  height: 2px;
+  width: 100%;
+  background: blue;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.loginMain .mainContainer .rightContainer .formContainer form .signLink a:hover::after {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+/*# sourceMappingURL=signIn.css.map */
