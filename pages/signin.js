@@ -13,9 +13,10 @@ const Signin = ({router}) => {
     }
     return (
        <React.Fragment>
-           
+           <Layout>
         {redirectMessage()}
         <SigninComponent/>
+        </Layout>
        </React.Fragment>
         
     )

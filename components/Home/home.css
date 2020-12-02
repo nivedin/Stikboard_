@@ -1,0 +1,184 @@
+main .mainContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .heroText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2% 3%;
+}
+
+main .heroText h1 {
+  margin-bottom: 30px;
+  font-size: 5rem;
+  position: relative;
+}
+
+main .heroText h1::after {
+  position: absolute;
+  content: "";
+  background: purple;
+  height: 3px;
+  width: 100px;
+  left: 0;
+  bottom: 0;
+}
+
+main .heroText p {
+  font-size: 1.1rem;
+  letter-spacing: 0.7px;
+  line-height: 1.4;
+  word-spacing: 2px;
+  color: #5c5c5c;
+}
+
+main .heroText .ctaBtn {
+  margin-top: 20px;
+  background: purple;
+  width: 7.5rem;
+  height: 3rem;
+  color: #ebebeb;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .heroText .ctaBtn:hover {
+  opacity: 0.9;
+}
+
+main .heroBg {
+  height: 100vh;
+  min-width: 50%;
+}
+
+main .heroBg img {
+  height: 100%;
+  width: 100%;
+}
+
+.section1 {
+  margin: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+}
+
+.section1 .leftContent {
+  height: 80vh;
+  min-width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.section1 .leftContent img {
+  height: 100%;
+  width: 80%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.section1 .leftContent:hover img {
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+}
+
+.section1 .rightContent {
+  min-width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section1 .rightContent p {
+  font-size: 1.8rem;
+  letter-spacing: 0.9px;
+  line-height: 1.4;
+  word-spacing: 4px;
+  color: #181818;
+  width: 90%;
+}
+
+.section1 .rightContent p a {
+  position: relative;
+  z-index: 1;
+}
+
+.section1 .rightContent p a::after {
+  position: absolute;
+  content: "";
+  background: #b40505;
+  height: 3px;
+  width: 100px;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.section1 .rightContent p a:hover::after {
+  height: 10px;
+}
+
+.section1 .rightContent p a:hover {
+  color: black;
+  height: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  main {
+    padding-top: 80px;
+  }
+  main .heroText h1 {
+    font-size: 4rem;
+  }
+  main .heroBg {
+    display: none;
+  }
+}
+/*# sourceMappingURL=home.css.map */

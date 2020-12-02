@@ -1,14 +1,15 @@
 import Layout from '../components/Layout.js'
+import Home from '../components/Home/Home.js'
 import Link from 'next/link'
 
 
 const Index = () => {
     return (
         <Layout>
-            <h2>Index Page</h2>
+            <Home />
+            {/* <h2>Index Page</h2>
             <Link href="/signin"><a>signin</a></Link>
-            <Link href="/signup"><a>signup</a></Link>
-
+            <Link href="/signup"><a>signup</a></Link> */}
         </Layout>
     )
 }

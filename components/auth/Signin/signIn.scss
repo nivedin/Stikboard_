@@ -144,7 +144,7 @@
             .forgetLink{
                
                 margin: 20px 0;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 font-weight: 500;
                 color: rgb(0, 0, 122);
                
@@ -180,4 +180,20 @@
 
     }
 }
+}
+
+
+@media screen and (max-width: 750px){
+    .leftContainer{
+        display: none !important;
+    }
+    .rightContainer{
+        h1{
+            font-size: 2rem !important;
+        }
+        width: 100% !important;
+        input {
+            padding: 2% 2% !important; 
+        }
+    }
 }

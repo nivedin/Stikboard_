@@ -2,6 +2,7 @@
 import Router from "next/router";
 import { useState,useEffect } from "react";
 import { signup ,isAuth,preSignup} from '../../../actions/auth'
+import { ToastContainer, toast } from 'react-toastify';
 import LoginGoogle from '../LoginGoogle'
 
 import './signUp.css';
@@ -32,7 +33,10 @@ const SignupComponent = () => {
         const user = { name, email, password }
 
         preSignup(user).then(data => {
-            if (data.error) {
+            if( password !== confirmPassword){
+                setValues({ ...values, error: 'Password does not match', loading: false });
+            }
+            else if (data.error) {
                 setValues({ ...values, error: data.error, loading: false });
             } else {
                 setValues({
@@ -40,6 +44,7 @@ const SignupComponent = () => {
                     name: '',
                     email: '',
                     password: '',
+                    confirmPassword:'',
                     error: '',
                     loading: false,
                     message: data.message,
@@ -50,20 +55,23 @@ const SignupComponent = () => {
     }
 
     const handleChange = name => (e) => {
-        setValues({ ...values, error: false, [name]: e.target.value })
+        setValues({ ...values, error: false,message: '', [name]: e.target.value })
     }
 
-    const showLoading = () => (
-        loading ? <div className="alert alert-info">Loading...</div> : ''
-    )
+    message ? toast.info(`${message}`) : ''
+    error ? toast.error(`${error}`)  : ''
 
-    const showError = () => (
-        error ? <div className="alert alert-danger">{error}</div> : ''
-    )
+    // const showLoading = () => (
+    //     loading ? <div className="alert alert-info">Loading...</div> : ''
+    // )
 
-    const showMessage = () => (
-        message ? <div className="alert alert-info">{message}</div> : ''
-    )
+    // const showError = () => (
+    //     error ? <div className="alert alert-danger">{error}</div> : ''
+    // )
+
+    // const showMessage = () => (
+    //     message ? <div className="alert alert-info">{message}</div> : ''
+    // )
 
     const signupForm = () => {
         return (
@@ -77,7 +85,7 @@ const SignupComponent = () => {
                     <div className="rightContainer">
                         <div className="signUpContent">
                             <div className="heading">
-                                <img src="images/cloud_og.png" alt="logo" />
+                                {/* <img src="images/cloud_og.png" alt="logo" /> */}
                                 <h1>Signup</h1>
                             </div>
                             <div className="formContainer">
@@ -113,9 +121,20 @@ const SignupComponent = () => {
 
     return (
         <div>
-            {showError()}
+          <ToastContainer
+            position="top-right"
+            autoClose={2200}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
+            {/* {showError()}
             {showLoading()}
-            {showMessage()}
+            {showMessage()} */}
             {signupForm()}
         </div>
     )

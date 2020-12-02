@@ -1,0 +1,134 @@
+main{
+    .mainContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .heroText{
+        display: flex;
+        flex-direction: column;
+        padding: 2% 3%;
+        h1{
+            margin-bottom: 30px;
+            font-size: 5rem;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: "";
+                background: purple;
+                height: 3px;
+                width: 100px;
+                left: 0;
+                bottom: 0;
+            }
+        }
+        p{
+            font-size: 1.1rem;
+            letter-spacing: 0.7px;
+            line-height: 1.4;
+            word-spacing: 2px;
+            color: rgb(92, 92, 92);
+        }
+        .ctaBtn{
+            margin-top: 20px;
+            background: purple;
+            width: 7.5rem;
+            height: 3rem;
+            color: rgb(235, 235, 235);
+           
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                opacity: 0.9;
+            }
+        }
+        
+    }
+    .heroBg{
+        height: 100vh;
+        min-width: 50%;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.section1{
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    .leftContent{
+        height: 80vh;
+        min-width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        img{
+            height: 100%;
+            width: 80%;
+            transition: all 0.3s linear;
+        }
+        &:hover img{
+            transform: rotate(2deg);
+        }
+    }
+    .rightContent{
+        min-width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p{
+            font-size: 1.8rem;
+            letter-spacing: 0.9px;
+            line-height: 1.4;
+            word-spacing: 4px;
+            color: rgb(24, 24, 24);
+            width: 90%;
+          a{
+            position: relative;
+            z-index: 1;
+            &::after{
+                position: absolute;
+                content: "";
+                background: rgb(180, 5, 5);
+                height: 3px;
+                width: 100px;
+                left: 0;
+                bottom: 0;
+                transition: all 0.3s linear;
+                border-radius: 4px;
+                z-index: -1;
+            }
+            &:hover::after{
+                height: 10px;
+            }
+            &:hover{
+                color: black;
+                height: 20px;
+            }
+          }
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    main{
+        padding-top: 80px;
+        .heroText{ 
+            h1{
+                font-size: 4rem;
+            }    
+        }
+        .heroBg{
+           display: none;
+        }
+    }
+    
+}

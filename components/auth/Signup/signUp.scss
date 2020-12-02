@@ -90,14 +90,14 @@
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     color: #c4c4c4;
-    top: 18px !important;
+    top: 22px !important;
     left: 8px;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer form input {
     font-size: 1.1rem;
     font-weight: 500;
-    margin: 8px 0 40px 0;
+    margin: 8px 0 35px 0;
     border: none;
     border-bottom: 4px solid #470047;
     font-family: inherit;
@@ -121,12 +121,9 @@
     letter-spacing: 1.2px;
 }
 
-.registerMain .mainContainer .rightContainer .formContainer form .div {
-    position: relative;
-    margin-bottom: 8px;
-}
 
-.registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:focus+label,
+
+.registerMain .mainContainer .rightContainer .formContainer form .nameContainer ,
 .registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:focus-within+label,
 .registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:not([value=""])+label {
     top: -18px !important;
@@ -162,6 +159,10 @@
     letter-spacing: 1.2px;
 }
 
+.registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer input{
+    margin-bottom: 20px;
+}
+
 .registerMain .mainContainer .rightContainer .formContainer form .submitBtn {
     border: none;
     border-radius: 5px;
@@ -181,32 +182,6 @@
     background: black;
 }
 
-.registerMain .mainContainer .rightContainer .formContainer form .googleBtn,
-.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn {
-    background: transparent;
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 40px;
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
-.registerMain .mainContainer .rightContainer .formContainer form .googleBtn svg,
-.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn svg {
-    font-size: 2.4rem;
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
-    color: #3b003b;
-}
-
-.registerMain .mainContainer .rightContainer .formContainer form .googleBtn svg:hover {
-    color: #a72c00;
-}
-
-.registerMain .mainContainer .rightContainer .formContainer form .facebookBtn svg:hover {
-    color: #0000bd;
-}
 
 .registerMain .mainContainer .rightContainer .formContainer p {
     margin-top: 20px;
@@ -241,4 +216,25 @@
     transform-origin: right;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+}
+
+@media screen and (max-width: 750px){
+
+    .registerMain .mainContainer .leftIllustration{
+        display: none;
+    }
+    .registerMain .mainContainer .rightContainer{
+        width: 100%;
+
+    }
+    .registerMain .mainContainer .rightContainer .formContainer form label{
+        font-size: 0.75rem;
+        top: 16px !important;
+    }
+    .registerMain .mainContainer .rightContainer .formContainer form input {
+        margin: 8px 0 30px 0;
+        font-size: 1rem;
+        padding: 1% 2%;
+    }
+    
 }

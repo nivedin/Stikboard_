@@ -4,6 +4,9 @@ import { useState,useEffect } from "react";
 import { signin,authenticate, isAuth, loginWithGoogle } from '../../../actions/auth'
 import Link from 'next/link'
 import LoginGoogle from '../LoginGoogle'
+import { ToastContainer, toast } from 'react-toastify';
+import { Spinner } from 'reactstrap';
+import 'react-toastify/dist/ReactToastify.css';
 import './signIn.css';
 
 
@@ -49,17 +52,24 @@ const SigninComponent = () => {
         setValues({ ...values, error: false, [name]: e.target.value })
     }
 
-    const showLoading = () => (
-        loading ? <div className="alert alert-info">Loading...</div> : ''
-    )
+    message ? toast.info(`${message}`) : ''
+    error ? toast.error(`${error}`)  : ''
+    // loading ? toast("Loading...") : ''
 
-    const showError = () => (
-        error ? <div className="alert alert-danger">{error}</div> : ''
-    )
+    // const showLoading = () => (
+    //     // loading ? <div className="alert alert-info">Loading...</div> : ''
+    //     loading ? toast("Loading...") : ''
+    // )
 
-    const showMessage = () => (
-        message ? <div className="alert alert-info">{message}</div> : ''
-    )
+    // const showError = () => (
+    //     error ? <div className="alert alert-danger">{error}</div> : ''
+    //     error ? toast.error(`${error}`)  : ''
+    // )
+
+    // const showMessage = () => (
+    //     message ? <div className="alert alert-info">{message}</div> : ''
+    //     message ? toast.info(`${message}`) : ''
+    // )
 
     const signinForm = () => {
         return (
@@ -85,10 +95,12 @@ const SigninComponent = () => {
                                     <input type="password" onChange={handleChange('password')} value={password} required />
                                     <label htmlFor="password">Password</label>
                                 </div>
-                                <button type="submit" className="loginBtn">Login</button><br />
+                                <button type="submit" className="loginBtn">
+                                {loading ?  <Spinner color="primary" style={{margin:'0 auto'}} /> : 'Login'}
+                                </button><br />
                                 <LoginGoogle/>
-                                <Link href="/auth/password/forgot" className="forgetLink">
-                                    <a>Forget Password ?</a>
+                                <Link href="/auth/password/forgot" >
+                                    <a className="forgetLink">Forget Password ?</a>
                                 </Link>
                                 <p className="signLink">New here ? <a href="/signup">Sign Up</a></p>
                             </form>
@@ -101,9 +113,20 @@ const SigninComponent = () => {
 
     return (
         <div>
-            {showError()}
+        <ToastContainer
+            position="top-right"
+            autoClose={2200}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
+            {/* {showError()}
             {showLoading()}
-            {showMessage()}
+            {showMessage()} */}
             {signinForm()}
         </div>
     )

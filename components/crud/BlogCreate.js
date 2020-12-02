@@ -7,6 +7,8 @@ import { getCookie, isAuth } from '../../actions/auth'
 import { getCategories } from '../../actions/category'
 import { getTags } from '../../actions/tag'
 import { createBlog } from '../../actions/blog'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import '../../node_modules/react-quill/dist/quill.snow.css'
 import { QuillModules, QuillFormats } from '../../helpers/quill'
@@ -74,7 +76,7 @@ const CreateBlog = ({ router }) => {
         e.preventDefault()
         // console.log('ready to publish', formData);
         createBlog(formData, token).then(data => {
-            console.log(data);
+            //console.log(data);
             if (data.error) {
                 setValues({ ...values, error: data.error })
             } else {
@@ -89,12 +91,13 @@ const CreateBlog = ({ router }) => {
     const handleChange = name => e => {
         const value = name === 'photo' ? e.target.files[0] : e.target.value
         formData.set(name, value)
-        setValues({ ...values, [name]: value, formData: formData, error: '' })
+        setValues({ ...values, [name]: value, formData: formData,error:''})
 
     }
 
     const handleBody = e => {
         setBody(e)
+        setValues({ ...values,error:''})
         formData.set('body', e)
         if (typeof window !== 'undefined') {
             localStorage.setItem('blog', JSON.stringify(e))
@@ -155,12 +158,15 @@ const CreateBlog = ({ router }) => {
         )
     }
 
-    const showError = () => (
-        <div className="alert alert-danger" style={{ display: error ? '' : 'none' }} >{error}</div>
-    )
-    const showSuccess = () => (
-        <div className="alert alert-success" style={{ display: success ? '' : 'none' }}>{success}</div>
-    )
+    success ? toast.info(`${success}`) : ''
+    error ? toast.error(`${error}`)  : ''
+
+    // const showError = () => (
+    //     <div className="alert alert-danger" style={{ display: error ? '' : 'none' }} >{error}</div>
+    // )
+    // const showSuccess = () => (
+    //     <div className="alert alert-success" style={{ display: success ? '' : 'none' }}>{success}</div>
+    // )
 
     const createBlogForm = () => {
         return (
@@ -187,8 +193,19 @@ const CreateBlog = ({ router }) => {
                 <div className="col-md-8">
                     {createBlogForm()}
                     <div className="px-4">
-                        {showError()}
-                        {showSuccess()}
+                    <ToastContainer
+            position="top-right"
+            autoClose={2200}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
+                        {/* {showError()} */}
+                        {/* {showSuccess()} */}
                     </div>
                 </div>
                 <div className="col-md-4">

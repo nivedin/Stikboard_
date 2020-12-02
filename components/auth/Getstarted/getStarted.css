@@ -1,0 +1,122 @@
+.getStartedMain {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.getStartedMain .mainContent {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.getStartedMain .mainContent .leftLogo {
+  background: #371950;
+  width: 60%;
+  position: relative;
+}
+
+.getStartedMain .mainContent .leftLogo .sbBg {
+  position: absolute;
+  height: 140%;
+  width: 155%;
+  top: -22%;
+  left: -5%;
+}
+
+.getStartedMain .mainContent .leftLogo .sbLogo {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+  right: 0;
+  height: 300px;
+  width: 650px;
+}
+
+.getStartedMain .mainContent .leftLogo .sbLogo img {
+  height: 100%;
+  width: 100%;
+}
+
+.getStartedMain .mainContent .rightContent {
+  background: #d8d8d8;
+  width: 40%;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin {
+  position: absolute;
+  border-radius: 4px;
+  height: 90%;
+  width: 40vw;
+  background: rgba(0, 0, 0, 0.596);
+  top: 5%;
+  right: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer {
+  text-align: center;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer h4 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer p {
+  color: #b9b9b9;
+  font-weight: 500;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer button {
+  padding: 1%;
+  min-width: 18rem;
+  border: 2px solid #007aff;
+  border-radius: 22px;
+  background: #007aff;
+  outline: none;
+  color: white;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer .signUpBtn:hover {
+  background: #007bffbd;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer .loginBtn {
+  background: transparent;
+}
+
+.getStartedMain .mainContent .rightContent .rightSignLogin .signLoginContainer .loginBtn:hover {
+  background: rgba(62, 79, 233, 0.089);
+}
+
+@media screen and (max-width: 750px) {
+  .sbBg {
+    position: absolute;
+    height: 64% !important;
+    width: 155%;
+    top: -11% !important;
+    left: 13% !important;
+  }
+  .sbLogo {
+    display: none;
+  }
+  .rightSignLogin {
+    width: 90% !important;
+    right: 5% !important;
+  }
+}
+/*# sourceMappingURL=getStarted.css.map */

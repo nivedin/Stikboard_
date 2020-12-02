@@ -192,7 +192,7 @@
 
 .loginMain .mainContainer .rightContainer .formContainer form .forgetLink {
   margin: 20px 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #00007a;
 }
@@ -229,5 +229,20 @@
           transform-origin: right;
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
+}
+
+@media screen and (max-width: 750px) {
+  .leftContainer {
+    display: none !important;
+  }
+  .rightContainer {
+    width: 100% !important;
+  }
+  .rightContainer h1 {
+    font-size: 2rem !important;
+  }
+  .rightContainer input {
+    padding: 2% 2% !important;
+  }
 }
 /*# sourceMappingURL=signIn.css.map */
