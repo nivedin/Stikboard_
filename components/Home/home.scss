@@ -1,3 +1,7 @@
+html{
+    min-width: fit-content !important;
+}
+
 main{
     .mainContent{
         display: flex;
@@ -128,6 +132,29 @@ main{
         }
         .heroBg{
            display: none;
+        }
+    }
+    .section1{
+        width: 100% !important;
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        flex-direction: column;
+        .leftContent{
+            margin: 30px auto;
+            height: 80vh;
+            width: 100% !important;
+            img{
+                margin: 30px auto;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .rightContent{
+            width: 100%;
+            p{
+                font-size: 1.2rem !important;
+            }
         }
     }
     

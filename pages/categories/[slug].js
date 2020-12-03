@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { singleCategory } from '../../actions/category'
-import Card from '../../components/blog/card'
+import Card from '../../components/blog/Card'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 
 

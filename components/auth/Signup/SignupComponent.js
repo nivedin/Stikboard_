@@ -10,10 +10,10 @@ import './signUp.css';
 
 const SignupComponent = () => {
     const [values, setValues] = useState({
-        name: 'Nivedin',
-        email: 'nivedinp@gmail.com',
-        password: 'qwe123',
-        confirmPassword: 'qwe123',
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
         error: '',
         loading: false,
         message: '',

@@ -12,8 +12,8 @@ import './signIn.css';
 
 const SigninComponent = () => {
     const [values, setValues] = useState({
-        email: 'nivedinp@gmail.com',
-        password: 'qwe123',
+        email: '',
+        password: '',
         error: '',
         loading: false,
         message: '',
