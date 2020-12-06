@@ -1,8 +1,19 @@
+import {useEffect} from 'react';
 import './getStarted.css';
 import Link from 'next/link'
+import { isAuth } from '../../../actions/auth'
+import Router from "next/router";
+
 
 
 const GetstartedComponent = () => {
+
+    useEffect(() => {
+        if(isAuth()){
+            isAuth().role === "admin" ? Router.push(`/admin`) : Router.push(`/user`)
+        }
+    },[])
+
 
     return (
         <div>

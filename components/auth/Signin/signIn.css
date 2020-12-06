@@ -13,6 +13,7 @@
 .loginMain .mainContainer .leftContainer {
   width: 40%;
   height: 100%;
+  background: #e7e7e7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,7 +38,6 @@
 .loginMain .mainContainer .rightContainer {
   padding-top: 80px;
   width: 60%;
-  background: purple;
   text-align: center;
 }
 
@@ -49,7 +49,7 @@
 .loginMain .mainContainer .rightContainer .heading h1 {
   font-size: 3rem;
   letter-spacing: 2px;
-  color: white;
+  color: black;
 }
 
 .loginMain .mainContainer .rightContainer .formContainer {
@@ -81,7 +81,7 @@
   letter-spacing: 0.6px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  color: #c4c4c4;
+  color: #616161;
   top: 18px !important;
   left: 8px;
 }
@@ -97,12 +97,12 @@
   border-radius: 4px;
   padding: 3% 2%;
   cursor: text;
-  background: rgba(104, 0, 104, 0.479);
+  background: rgba(235, 235, 235, 0.479);
 }
 
 .loginMain .mainContainer .rightContainer .formContainer form input:focus {
   outline: none;
-  border-bottom: 4px solid #f805e4;
+  border-bottom: 4px solid #381750;
 }
 
 .loginMain .mainContainer .rightContainer .formContainer form .emailContainer {
@@ -113,7 +113,7 @@
 .loginMain .mainContainer .rightContainer .formContainer form .emailContainer input:focus-within + label,
 .loginMain .mainContainer .rightContainer .formContainer form .emailContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -126,7 +126,7 @@
 .loginMain .mainContainer .rightContainer .formContainer form .passwordContainer input:focus-within + label,
 .loginMain .mainContainer .rightContainer .formContainer form .passwordContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -141,14 +141,14 @@
   font-weight: 500;
   color: white;
   letter-spacing: 1.8px;
-  background: #202020;
+  background: #381750;
   margin-bottom: 10px;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 .loginMain .mainContainer .rightContainer .formContainer form .loginBtn:hover {
-  background: black;
+  background: #5b2b7c;
 }
 
 .loginMain .mainContainer .rightContainer .formContainer form .socialLogin {
@@ -198,7 +198,8 @@
 }
 
 .loginMain .mainContainer .rightContainer .formContainer form .signLink {
-  color: white;
+  margin-top: 10px;
+  color: #020202;
   font-weight: 500;
   font-size: 0.88rem;
 }

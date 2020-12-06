@@ -85,7 +85,8 @@ const SingleBlog = ({ blog, query }) => {
     const showComments = () => {
         return(
             <div>
-                <DisqusThread id={blog.id} title={blog.title} path={`/blog/${blog.slug}`}/>
+            {console.log({blog})}
+                <DisqusThread id={blog._id} title={blog.title} path={`/blog/${blog.slug}`}/>
             </div>
         )
     }
@@ -98,7 +99,7 @@ const SingleBlog = ({ blog, query }) => {
                     <article>
                         <div className="container-fluid">
                             <section>
-                                <div className="row" style={{ marginTop: '10px' }}>
+                                <div className="row">
                                     <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" />
                                 </div>
                             </section>
@@ -127,10 +128,11 @@ const SingleBlog = ({ blog, query }) => {
                             </section>
                         </div>
 
+
+          
                         <div className="container pb-5">
                             <h2 className="text-center pt-5 pb-5">Related Blogs</h2>
                             <hr />
-                            {/* {JSON.stringify(related)} */}
                             <div className="row">
                                 {showRelatedBlogs()}
                             </div>

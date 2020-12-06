@@ -51,9 +51,9 @@ const Header = (props) => {
       <Navbar expand="md" light className={navbar ? "navBar active" : "navBar"} >
         <NavbarBrand>
           <Link href="/">
-            <NavLink className="font-weight-bold navLogo">
+            <NavLink className="navLogo">
               {/* {APP_NAME}  */}
-              <img src="images/logo2.png" alt="logo" />
+              <img src="/images/logo2.png" alt="logo" />
             </NavLink>
           </Link>
         </NavbarBrand>
@@ -72,13 +72,11 @@ const Header = (props) => {
               <NavItem>
                 <Link href="/blogs">
                   <NavLink style={{ cursor: 'pointer', margin: '0 10px' }}>
-                    Blogs
+                   Blogs
                   </NavLink>
                 </Link>
               </NavItem>
             </React.Fragment>
-
-
 
             {/* <React.Fragment>
               <NavItem>
@@ -90,86 +88,40 @@ const Header = (props) => {
               </NavItem>
             </React.Fragment> */}
 
-
-            {/* {!isAuth() && (
-              <React.Fragment>
-                <NavItem>
-                  <Link href="/signin">
-                    <NavLink style={{ cursor: 'pointer' }}>
-                      Signin
-                </NavLink>
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link href="/signup">
-                    <NavLink style={{ cursor: 'pointer' }}>
-                      Signup
-                </NavLink>
-                  </Link>
-                </NavItem>
-              </React.Fragment>
-            )} */}
-
-            {/* <NavItem>
-              <Link href="/user/crud/blog">
-                <NavLink style={{ cursor: 'pointer' }}>
-                  Create Blog
-                </NavLink>
-              </Link>
-            </NavItem> */}
+            {isAuth() && isAuth().role === "admin" && (
+                <React.Fragment>
+                   <Link href="/admin">
+                      <NavLink style={{ cursor: 'pointer' }}>
+                          {`${isAuth().name}`}'s Dashboard
+                        </NavLink>
+                      </Link>
+                </React.Fragment>
+            )}
+            {isAuth() && isAuth().role !== "admin" && (
+                <React.Fragment>
+                <Link href="/user">
+                          <NavLink style={{ cursor: 'pointer' }}>
+                            {`${isAuth().name}`}'s Dashboard
+                          </NavLink>
+                        </Link>
+                </React.Fragment>
+            )}
 
             {!isAuth() && (
               <React.Fragment>
                 <NavItem>
                   <Link href="/getStarted">
-                    <NavLink style={{ cursor: 'pointer' }} className="mx-3 btn  text-light" style={{ background: ' #470047' }}>
-                      Get Started
+                    <NavLink style={{ cursor: 'pointer' }} className="getStartedBtn text-light">
+                     <a> Get Started</a>
                     </NavLink>
                   </Link>
                 </NavItem>
               </React.Fragment>
             )}
 
-            {/* {isAuth() && isAuth().role !== "admin" && (
-              <NavItem>
-                <Link href="/user">
-                  <NavLink style={{ cursor: 'pointer' }}>
-                    {`${isAuth().name}`}'s Dashboard
-                </NavLink>
-                </Link>
-              </NavItem>
-            )}
-
-            {isAuth() && isAuth().role === "admin" && (
-              <NavItem>
-                <Link href="/admin">
-                  <NavLink style={{ cursor: 'pointer' }}>
-                    {`${isAuth().name}`}'s Dashboard
-                </NavLink>
-                </Link>
-              </NavItem>
-            )} */}
-
-            {/* {isAuth() && (
-              <NavItem>
-                <NavLink style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
-                  Logout
-                </NavLink>
-              </NavItem>
-            )} */}
-            {/* {isAuth() && (
-              <NavItem>
-                <NavLink style={{ cursor: 'pointer' }}>
-                  <img
-                    src={`${API}/user/photo/${isAuth().username}`}
-                    className="img img-fluid img-thumbnail "
-                    style={{ height: '3rem', width: '3rem', borderRadius: '50%' }}
-                    alt="user profile"
-                  />
-                </NavLink>
-              </NavItem>
-            )} */}
             {isAuth() && (
+              <React.Fragment>
+              <NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav>
                   <NavLink style={{ cursor: 'pointer' }}>
@@ -182,47 +134,49 @@ const Header = (props) => {
                   </NavLink>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  {/* <DropdownItem>
                     {isAuth() && isAuth().role === "admin" && (
-                      <NavItem>
+                     
                         <Link href="/admin">
                           <NavLink style={{ cursor: 'pointer' }}>
                             {`${isAuth().name}`}'s Dashboard
                           </NavLink>
                         </Link>
-                      </NavItem>
+                     
                     )}
                   </DropdownItem>
                   <DropdownItem>
                     {isAuth() && isAuth().role !== "admin" && (
-                      <NavItem>
+                     
                         <Link href="/user">
                           <NavLink style={{ cursor: 'pointer' }}>
                             {`${isAuth().name}`}'s Dashboard
-                </NavLink>
+                          </NavLink>
                         </Link>
-                      </NavItem>
+                     
                     )}
-                  </DropdownItem>
+                  </DropdownItem> */}
                   <DropdownItem>
                     <Link href="/user/crud/blog">
                       <NavLink style={{ cursor: 'pointer' }}>
                         Create Blog
-                </NavLink>
+                      </NavLink>
                     </Link>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
                     {isAuth() && (
-                      <NavItem>
+                     
                         <NavLink style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
                           Logout
-                </NavLink>
-                      </NavItem>
+                        </NavLink>
+                     
                     )}
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              </NavItem>
+              </React.Fragment>
             )}
 
           </Nav>

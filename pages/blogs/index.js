@@ -107,7 +107,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         <React.Fragment>
             {head()}
             <Layout>
-                <main className="pt-5">
+                <main style={{paddingTop:'140px'}}>
                     <div className="container-fluid">
                         <header>
                             <div className="col-md-12 px-3">

@@ -49,7 +49,7 @@ const UserProfile = ({ user, blogs, query }) => {
         <React.Fragment>
             {head()}
             <Layout>
-                <div className="container">
+                <div className="container" style={{paddingTop:'140px'}}>
                     <div className="row">
                         <div className="col-md-12">
                             <div className="card">

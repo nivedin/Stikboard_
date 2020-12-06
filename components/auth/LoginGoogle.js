@@ -32,6 +32,7 @@ const LoginGoogle = () => {
     return (
         <div className="login-with-google py-3">
             <GoogleLogin
+                theme="dark"
                 clientId={`${GOOGLE_CLIENT_ID}`}
                 buttonText="Login with Google"
                 onSuccess={responseGoogle}

@@ -21,7 +21,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: whitesmoke;
+  background: #dfdfdf;
 }
 
 .registerMain .mainContainer .leftIllustration .mainIllustration {
@@ -38,7 +38,7 @@
 
 .registerMain .mainContainer .rightContainer {
   width: 55%;
-  background: purple;
+  background: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,7 +59,7 @@
 .registerMain .mainContainer .rightContainer .heading h1 {
   font-size: 3rem;
   letter-spacing: 2px;
-  color: white;
+  color: black;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer {
@@ -88,7 +88,7 @@
   letter-spacing: 0.6px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  color: #c4c4c4;
+  color: #616161;
   top: 22px !important;
   left: 8px;
 }
@@ -104,18 +104,18 @@
   border-radius: 4px;
   padding: 3% 2%;
   cursor: text;
-  background: rgba(104, 0, 104, 0.479);
+  background: rgba(235, 235, 235, 0.479);
 }
 
 .registerMain .mainContainer .rightContainer .formContainer form input:focus {
   outline: none;
-  border-bottom: 4px solid #f805e4;
+  border-bottom: 4px solid #381750;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer form input:focus + label,
 .registerMain .mainContainer .rightContainer .formContainer form input:focus-within + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -124,7 +124,7 @@
 .registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:focus-within + label,
 .registerMain .mainContainer .rightContainer .formContainer form .nameContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -133,7 +133,7 @@
 .registerMain .mainContainer .rightContainer .formContainer form .emailContainer input:focus-within + label,
 .registerMain .mainContainer .rightContainer .formContainer form .emailContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -142,7 +142,7 @@
 .registerMain .mainContainer .rightContainer .formContainer form .passwordContainer input:focus-within + label,
 .registerMain .mainContainer .rightContainer .formContainer form .passwordContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -151,7 +151,7 @@
 .registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer input:focus-within + label,
 .registerMain .mainContainer .rightContainer .formContainer form .confirmPassContainer input:not([value=""]) + label {
   top: -18px !important;
-  color: #ff9af2;
+  color: #530949;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
 }
@@ -170,20 +170,20 @@
   color: white;
   font-weight: 500;
   letter-spacing: 1px;
-  background: #1f1f1f;
+  background: #381750;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer form .submitBtn:hover {
-  background: black;
+  background: #5b2b7c;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer p {
   margin-top: 20px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: white;
+  color: black;
 }
 
 .registerMain .mainContainer .rightContainer .formContainer p a {
