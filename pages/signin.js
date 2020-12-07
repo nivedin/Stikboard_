@@ -11,17 +11,32 @@ const Signin = ({router}) => {
     const head = () => (
         <Head>
             <title>Signin | {APP_NAME}</title>
-            <meta name="description" content="Programming blogs,travell,photograp like a social media platform" />
+            <meta name="description" content="Spend all day doing what you love the most. Meet like-minded people and learn. Expose your talents. Connect with people with similar talents around the world. Stikboard is here to stay." />
             <link rel="canonical" href={`${DOMAIN}`} />
-            <meta property="og:title" content={`Latest web blogs and news | ${APP_NAME}`} />
-            <meta name="og:description" content="Programming blogs,travell,photograph like a social media platform" />
+            <meta property="og:title" content={`Not your usual social network | ${APP_NAME}`} />
+            <meta name="og:description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}`} />
-
-            <meta property="og:image" content={`${DOMAIN}/images/sbLogo.png`} />
-            <meta property="og:image:secure_url" content={`${DOMAIN}/images/sbLogo.png`} />
+            <meta name="twitter:card" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
+            <meta name="keywords" content="socialmedia,blog,technology,writings,poem,movies,reviews,connect,share,stikboard,follow,connection,group,travell"/>
+            <meta name="robots" content= "index, follow"/>
+            {/* <!-- Schema.org markup for Google+ --> */}
+            <meta itemprop="name" content={APP_NAME}/>
+            <meta itemprop="description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
+            <meta itemprop="image" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
+            <meta property="og:site_name" content="Stikboard"/>
+            <meta name="twitter:image:alt" ontent="Share your creation to the world,connect with similar talents and participate in exciting competitions."/>
+            <meta property="og:image" content={`${DOMAIN}/images/mainLogoMeta.jpg`} />
+            <meta property="og:image:secure_url" content={`${DOMAIN}/images/mainLogoMeta.jpg`} />
             <meta property="og:image:type" content="image/png" />
             <meta property="fb:app_id" content={`${FB_APP_ID}`} />
+            <meta name="twitter:site" content="Stikboard"/>
+            {/* <!-- Twitter Card data --> */}
+            <meta name="twitter:card" content="Share your creation to the world,connect with similar talents and participate in exciting competitions."/>
+            <meta name="twitter:title" content={APP_NAME}/>
+            <meta name="twitter:description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay."/>
+            <meta name="twitter:creator" content="Stikboard"/>
+            <meta name="twitter:image:src" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
         </Head>
     )
     const redirectMessage = () => {

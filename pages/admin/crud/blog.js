@@ -8,7 +8,7 @@ const Blog = () => {
     return (
         <Layout>
             <Admin>
-                <div className="container-fluid">
+                <div className="container-fluid" style={{paddingTop:'140px'}}>
                     <h1 className="pt-5 pb-5">Create a Blog</h1>
                     <div className="row">
                         <div className="col-12">

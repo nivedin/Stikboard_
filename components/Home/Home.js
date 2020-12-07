@@ -41,7 +41,7 @@ const Home = () => {
                     <img src="/images/heroImg2.jpg" alt="leftImg" />
                 </div>
                 <div className="rightContent">
-                    <p>Spend all day doing what you love the most. Meet like-minded people and learn. Expose your talents. Connect with people with similar talents around the world.Stikboard is here to stay.</p>
+                    <p>Spend all day doing what you love the most. Meet like-minded people and learn. Expose your talents. Connect with people with similar talents around the world. Stikboard is here to stay.</p>
 
                 </div>
             </section>

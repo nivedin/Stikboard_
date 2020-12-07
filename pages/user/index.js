@@ -1,14 +1,17 @@
 import Layout from '../../components/Layout'
 import Private from '../../components/auth/Private'
 import Link from 'next/link'
+import SideBar from '../../components/profile/Sidebar'
+import MiddleSection from '../../components/profile/MiddleSection'
+import SearchBar from '../../components/profile/SearchBar'
 
 
 const UserIndex = () => {
     return (
         <Layout>
             <Private>
-            <div className="container-fluid" style={{paddingTop:'140px'}}>
-                    <h1 className="pt-5 pb-5">User Dashboard</h1>
+            <div className="profileContent" style={{display:'flex',paddingTop:'100px'}}>
+                    {/* <h1 className="pt-5 pb-5">User Dashboard</h1>
                     <div className="row">
                         <div className="col-md-4">
                             <ul className="list-group">
@@ -28,7 +31,11 @@ const UserIndex = () => {
                             </ul>
                         </div>
                         <div className="col-md-8">right</div>
-                    </div>
+                    </div> */}
+                    <SideBar />
+                    <MiddleSection/>
+                    <SearchBar/>
+
                 </div>
             </Private>
         </Layout>
