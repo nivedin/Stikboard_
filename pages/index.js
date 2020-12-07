@@ -11,11 +11,10 @@ const Index = () => {
     const head = () => (
         <Head>
             <title>{APP_NAME}</title>
+            <meta name="description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
             <link rel="canonical" href={`${DOMAIN}`} />
             <meta property="og:title" content={`Not your usual social network | ${APP_NAME}`} />
             <meta name="og:description" content="Share your creation to the world,connect with similar talents and participate in exciting competitions." />
-            <meta name="description" content="
-Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}`} />
             <meta name="twitter:card" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
@@ -33,8 +32,7 @@ Spend all day doing what you love the most.Meet like-minded people and learn.Exp
             {/* <!-- Twitter Card data --> */}
             <meta name="twitter:card" content="Share your creation to the world,connect with similar talents and participate in exciting competitions."/>
             <meta name="twitter:title" content={APP_NAME}/>
-            <meta name="twitter:description" content="
-Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay."/>
+            <meta name="twitter:description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay."/>
             <meta name="twitter:creator" content="Stikboard"/>
             <meta name="twitter:image:src" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
         </Head>
