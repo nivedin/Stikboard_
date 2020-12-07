@@ -25,7 +25,7 @@ const Home = () => {
                         social network!
                         </h1>
                     <p className="heroPara">
-                        Share your creation to the world,connect with similar talents and participate in exciting competitions.
+                        Share your creation to the world, connect with similar talents and participate in exciting competitions.
                         </p>
                     <a href="/getStarted" className="ctaBtn">Get Started</a>
                 </div>

@@ -14,7 +14,7 @@ const Index = () => {
             <meta name="description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
             <link rel="canonical" href={`${DOMAIN}`} />
             <meta property="og:title" content={`Not your usual social network | ${APP_NAME}`} />
-            <meta name="og:description" content="Share your creation to the world,connect with similar talents and participate in exciting competitions." />
+            <meta name="og:description" content="Spend all day doing what you love the most.Meet like-minded people and learn.Expose your talents.Connect with people with similar talents around the world.Stikboard is here to stay." />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}`} />
             <meta name="twitter:card" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
@@ -41,11 +41,8 @@ const Index = () => {
        <React.Fragment>
        {head()}
             <Layout>
-            <Home />
-            {/* <h2>Index Page</h2>
-            <Link href="/signin"><a>signin</a></Link>
-            <Link href="/signup"><a>signup</a></Link> */}
-        </Layout>
+              <Home />
+            </Layout>
        </React.Fragment>
     )
 }
