@@ -53,7 +53,7 @@ const ResetPassword = ({ router }) => {
 
     return (
         <Layout>
-            <div className="container">
+            <div className="container" style={{paddingTop:'140px'}}>
                 <h2>Reset Password</h2>
                 <hr />
 

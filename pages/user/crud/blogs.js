@@ -11,8 +11,8 @@ const Blog = () => {
     return (
         <Layout>
             <Private>
-                <div className="container-fluid">
-                    <h1 className="pt-5 pb-5">Manage Blog</h1>
+                <div className="container-fluid" style={{paddingTop:'140px'}}>
+                    <h1 className="pb-5">Manage Blog</h1>
                     <div className="row">
                         <div className="col-12">
                             <BlogRead username={username}/>

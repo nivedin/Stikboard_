@@ -44,7 +44,7 @@ const ActivateAccount = ({ router }) => {
 
     return (
         <Layout>
-            <div className="container">
+            <div className="container" style={{paddingTop:'140px'}}>
                 <h3>Hey {name},Ready to activate your account</h3>
                 {showLoading()}
                 {error && error}

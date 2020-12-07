@@ -8,7 +8,7 @@ const UserUpdate = () => {
     return (
         <Layout>
             <Private>
-            <div className="container-fluid">
+            <div className="container-fluid" style={{paddingTop:'140px'}}>
                     <div className="row">
                         <ProfileUpdate/>
                     </div>

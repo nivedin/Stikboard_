@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import Link from 'next/link'
 import { API, APP_NAME } from '../config';
 import { signout, isAuth } from '../actions/auth';
+import {Img} from 'react-image'
 
 import {
   Collapse,
@@ -45,6 +46,16 @@ const Header = (props) => {
  useEffect(() => {
   window.addEventListener('scroll',changeBackground)
  }, [])
+
+ const myComponent = () => (
+  <Img
+    src='/images/blank-profile-picture.webp'
+  />
+)
+
+
+const noImg = '/images/blank-profile-picture.webp'
+
 
   return (
     <React.Fragment>
@@ -91,7 +102,7 @@ const Header = (props) => {
             {isAuth() && isAuth().role === "admin" && (
                 <React.Fragment>
                    <Link href="/admin">
-                      <NavLink style={{ cursor: 'pointer' }}>
+                      <NavLink style={{ cursor: 'pointer',minWidth:'fit-content' }}>
                           {`${isAuth().name}`}'s Dashboard
                         </NavLink>
                       </Link>
@@ -100,7 +111,7 @@ const Header = (props) => {
             {isAuth() && isAuth().role !== "admin" && (
                 <React.Fragment>
                 <Link href="/user">
-                          <NavLink style={{ cursor: 'pointer' }}>
+                          <NavLink style={{ cursor: 'pointer',minWidth:'fit-content' }}>
                             {`${isAuth().name}`}'s Dashboard
                           </NavLink>
                         </Link>
@@ -125,12 +136,11 @@ const Header = (props) => {
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav>
                   <NavLink style={{ cursor: 'pointer' }}>
-                    <img
-                      src={`${API}/user/photo/${isAuth().username}`}
-                      className="img img-fluid"
-                      style={{ height: '3rem', width: '3rem', borderRadius: '50%' }}
-                      alt="user profile"
-                    />
+                  <Img
+                    src={[`${API}/user/photo/${isAuth().username}`, "/images/blank-profile-picture.webp"]}
+                    unloader={myComponent}
+                    style={{ height: '3rem', width: '3rem', borderRadius: '50%' }}
+                  />
                   </NavLink>
                 </DropdownToggle>
                 <DropdownMenu right>

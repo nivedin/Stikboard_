@@ -21,11 +21,14 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             <meta name="og:description" content="Programming blogs,travell,photograph like a social media platform" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
-
-            <meta property="og:image" content={`${DOMAIN}/images/sbLogo.png`} />
-            <meta property="og:image:secure_url" content={`${DOMAIN}/images/sbLogo.png`} />
+            <meta name="twitter:card" content={`${DOMAIN}/images/mainLogoMeta.jpg`}/>
+            <meta property="og:site_name" content="Stikboard"/>
+            <meta name="twitter:image:alt" ontent="Programming blogs,travell,photograph like a social media platform"/>
+            <meta property="og:image" content={`${DOMAIN}/images/mainLogoMeta.jpg`} />
+            <meta property="og:image:secure_url" content={`${DOMAIN}/images/mainLogoMeta.jpg`} />
             <meta property="og:image:type" content="image/png" />
             <meta property="fb:app_id" content={`${FB_APP_ID}`} />
+            <meta name="twitter:site" content="Stikboard"/>
         </Head>
     )
 

@@ -53,7 +53,7 @@ const ForgotPassword = () => {
 
     return (
         <Layout>
-            <div className="container">
+            <div className="container" style={{paddingTop:'140px'}}>
                 <h2>Forgot Password</h2>
                 <hr />
 
