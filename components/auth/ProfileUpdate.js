@@ -63,7 +63,7 @@ const ProfileUpdate = () => {
         const value = name === 'photo' ? e.target.files[0] : e.target.value;
         // let userData = new FormData();
         userData.set(name, value);
-        console.log(...userData); // SEE THE FORMDATA IN CONSOLE
+        //console.log(...userData); // SEE THE FORMDATA IN CONSOLE
         setValues({ ...values, [name]: value, userData, error: false, success: false });
     };
 

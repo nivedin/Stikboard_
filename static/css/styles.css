@@ -159,6 +159,12 @@ h1 {
   color: purple;
 }
 
+.blogBody img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
 @media screen and (max-width: 720px) {
   .navMobCollapse {
     margin-left: 0;

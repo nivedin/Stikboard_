@@ -11,6 +11,7 @@ import SmallCard from '../../components/blog/SmallCard'
 import DisqusThread from '../../components/DisqusThread'
 
 
+
 const SingleBlog = ({ blog, query }) => {
 
     const [related, setRelated] = useState([])
@@ -97,7 +98,7 @@ const SingleBlog = ({ blog, query }) => {
             <Layout>
                 <main>
                     <article>
-                        <div className="container-fluid">
+                        <div className="container-fluid" style={{paddingTop:'100px'}}>
                             <section>
                                 <div className="row">
                                     <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" />
@@ -122,7 +123,7 @@ const SingleBlog = ({ blog, query }) => {
 
                         <div className="container">
                             <section>
-                                <div className="col-md-12 lead">
+                                <div className="col-md-12 lead blogBody">
                                     {renderHTML(blog.body)}
                                 </div>
                             </section>
