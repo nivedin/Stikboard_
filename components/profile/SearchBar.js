@@ -9,7 +9,7 @@ const SearchBar = () => {
         <React.Fragment>
             <div className="searchBarSection">
                 <div className="searchBarContainer">
-                    <Search/>
+                    {/* <Search/> */}
                </div>
             </div>
         </React.Fragment>

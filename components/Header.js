@@ -69,7 +69,7 @@ const noImg = '/images/blank-profile-picture.webp'
           </Link>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <Collapse isOpen={isOpen} className="navMobCollapse" navbar>
           <Nav className="ml-auto" navbar>
 
 

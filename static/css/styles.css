@@ -158,4 +158,12 @@ h1 {
 .searchContainer .searchBtn:hover {
   color: purple;
 }
+
+@media screen and (max-width: 720px) {
+  .navMobCollapse {
+    margin-left: 0;
+    min-width: 100vw;
+    background: rgba(124, 124, 124, 0.651);
+  }
+}
 /*# sourceMappingURL=styles.css.map */

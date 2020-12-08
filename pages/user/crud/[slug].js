@@ -8,7 +8,7 @@ const Blog = () => {
     return (
         <Layout>
             <Private>
-                <div className="container-fluid">
+                <div className="container-fluid" style={{paddingTop:"50px"}}>
                     <h1 className="pt-5 pb-5">Update Blog</h1>
                     <div className="row">
                         <div className="col-12">

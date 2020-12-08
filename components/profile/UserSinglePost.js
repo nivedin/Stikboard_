@@ -9,7 +9,7 @@ import './css/profile.css'
 const UserSinglePost = (blogs) => {
     const { blog } = blogs
 
-    { console.log("blogs", blog); }
+    // { console.log("blogs", blog); }
     return (
         <React.Fragment>
             <div className="userSinglePostContainer">
@@ -32,7 +32,7 @@ const UserSinglePost = (blogs) => {
                 <div className="userPostBody">
                     <div className="postTitle">
                         <Link href={`/blogs/${blog.slug}`}>
-                            {blog.title}
+                            <span>{blog.title}</span>
                         </Link>
                         <hr />
                     </div>
@@ -48,9 +48,12 @@ const UserSinglePost = (blogs) => {
 
                 </div>
                 <div className="userPostFooter">
-                    <div className="startIco">sds</div>
+                    <Link href={`/blogs/${blog.slug}`}>
+                        <a className="readMore">Read More</a>
+                    </Link>
+                    {/* <div className="startIco">sds</div>
                     <div className="commentIco">sds</div>
-                    <div className="shareIco">sds</div>
+                    <div className="shareIco">sds</div> */}
                 </div>
             </div>
         </React.Fragment>

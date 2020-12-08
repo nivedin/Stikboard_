@@ -1,3 +1,10 @@
+.profileContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 100px;
+}
+
 .sideBar {
   min-width: 20%;
   height: 100vh;
@@ -7,7 +14,105 @@
   width: 20%;
   height: 100vh;
   position: fixed;
-  background: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sideBar .sideBarContainer ul {
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
+}
+
+.sideBar .sideBarContainer li {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.sideBar .sideBarContainer a {
+  width: 105%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 30px;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+  border-radius: 10px;
+  padding: 0 2%;
+}
+
+.sideBar .sideBarContainer a:hover {
+  background: #dddddd;
+  color: #3f3f3f;
+}
+
+.sideBar .sideBarContainer a:hover .sidebarIcon .svgIcon path {
+  fill: purple !important;
+}
+
+.sideBar .sideBarContainer .sidebarIcon {
+  min-height: 50px;
+  min-width: 60px;
+  max-width: 60px;
+  margin-right: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+
+.sideBar .sideBarContainer .sidebarIcon .svgIcon {
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 40px;
+  max-width: 40px;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+
+.sideBar .sideBarContainer .sidebarIcon .svgIcon path {
+  font-size: 1rem;
+  fill: none !important;
+  stroke: #381750 !important;
+  stroke-width: 20px;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+
+.sideBar .sideBarContainer .sideBarLink {
+  font-weight: 600;
+}
+
+.sideBar .sideBarContainer .postTab {
+  background: #381750;
+  color: white;
+}
+
+.sideBar .sideBarContainer .postTab .svgIcon path {
+  stroke: white !important;
+}
+
+.sideBar .sideBarContainer .postTab:hover {
+  opacity: 0.9;
+  background: unset;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .middleSectionContainer {
@@ -23,13 +128,15 @@
 
 .userDetailContent {
   width: 100%;
-  height: 50vh;
-  background: #5353bb;
+  height: 40vh;
+  border: 2px solid #dfdfdf;
+  border-radius: 5px;
 }
 
 .userDetailContent .userProfileTop {
-  background: lightblue;
   padding: 2% 2%;
+  background: #381750;
+  border-radius: 5px 5px 0 0;
 }
 
 .userDetailContent .userProfileTop .userTopContainer {
@@ -43,6 +150,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 80%;
+  margin: 0 auto;
 }
 
 .userDetailContent .userProfileTop .userTopContainer .userProfilePhoto {
@@ -68,13 +176,38 @@
           align-items: center;
 }
 
+.userDetailContent .userProfileTop .userTopContainer .userProfileRatingConnections .noPosts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userDetailContent .userProfileTop .userTopContainer .userProfileRatingConnections .noPosts span:nth-child(2) {
+  font-size: 0.8rem;
+  color: #e9e9e9;
+  font-weight: 500;
+}
+
 .userDetailContent .userProfileTop .userTopContainer .userProfileRatingConnections p {
   margin-right: 50px;
   font-size: 2rem;
+  color: white;
 }
 
 .userDetailContent .userProfBottom {
-  padding: 2%;
+  padding: 2% 4%;
+}
+
+.userDetailContent .userProfBottom .userName {
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .userDetailContent .userProfBottom .nameEditCont {
@@ -89,10 +222,64 @@
           align-items: center;
 }
 
+.userDetailContent .userProfBottom .nameEditCont .editProfile a {
+  width: 105%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #381750;
+  padding: 2%;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: #464646;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.userDetailContent .userProfBottom .nameEditCont .editProfile a:hover {
+  -webkit-box-shadow: 0px 10px 10px -10px #adadad;
+          box-shadow: 0px 10px 10px -10px #adadad;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.userDetailContent .userProfBottom .nameEditCont .editProfile .editProfIcon {
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userDetailContent .userProfBottom .nameEditCont .editProfile .editProfIcon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.userDetailContent .userProfBottom .nameEditCont .editProfile .editProfIcon svg path {
+  fill: #381750;
+}
+
+.userDetailContent .userProfBottom .userAbout {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
 .userSinglePostContainer {
   margin: 10px 0;
-  border: 2px solid black;
+  border: 2px solid #dfdfdf;
   padding: 2%;
+  border-radius: 5px;
 }
 
 .userSinglePostContainer .userPostTitle {
@@ -154,6 +341,12 @@
   height: 18px;
   width: 18px;
   color: #757575;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.userSinglePostContainer .userPostTitle .editBlog:hover svg {
+  color: #5f218b;
 }
 
 .userSinglePostContainer .userPostBody {
@@ -163,6 +356,17 @@
 .userSinglePostContainer .userPostBody .postTitle {
   font-weight: 500;
   font-size: 1.5rem;
+}
+
+.userSinglePostContainer .userPostBody .postTitle span {
+  cursor: pointer;
+  border-bottom: 2px solid purple;
+  -webkit-transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+}
+
+.userSinglePostContainer .userPostBody .postTitle span:hover {
+  border-bottom: 0px;
 }
 
 .userSinglePostContainer .userPostBody .postImage {
@@ -190,6 +394,21 @@
   display: flex;
 }
 
+.userSinglePostContainer .userPostFooter .readMore {
+  border: 2px solid #381750;
+  padding: 1% 2%;
+  color: #141414;
+  border-radius: 5px;
+  font-weight: 500;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.userSinglePostContainer .userPostFooter .readMore:hover {
+  background: #381750;
+  color: white;
+}
+
 .userSinglePostContainer .userPostFooter div {
   margin-right: 10px;
 }
@@ -201,5 +420,125 @@
 .searchBarSection .searchBarContainer {
   position: fixed;
   min-width: 20%;
+}
+
+@media screen and (max-width: 720px) {
+  .profileContent {
+    display: unset;
+    padding: 100px 0 !important;
+    margin: 100px 0 !important;
+  }
+  .sideBar {
+    width: 100%;
+    height: 10vh;
+    position: relative;
+  }
+  .sideBar .sideBarContainer {
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    background: #a5a5a5;
+  }
+  .sideBar .sideBarContainer ul {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 90%;
+    margin: 28px auto 0 auto;
+  }
+  .sideBar .sideBarContainer li {
+    margin: 0;
+  }
+  .sideBar .sideBarContainer a {
+    width: 100%;
+  }
+  .sideBar .sideBarContainer .sidebarIcon {
+    min-height: 50px;
+    min-width: 60px;
+    max-width: 60px;
+    margin-right: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .sideBar .sideBarContainer .sidebarIcon .svgIcon {
+    min-height: 28px;
+    min-width: 28px;
+    max-height: 28px;
+    max-width: 28px;
+  }
+  .sideBar .sideBarContainer .sidebarIcon .svgIcon path {
+    font-size: 1rem;
+    fill: none !important;
+    stroke: #381750 !important;
+    stroke-width: 25px;
+    -webkit-transition: all 0.35s linear;
+    transition: all 0.35s linear;
+  }
+  .sideBar .sideBarContainer .sideBarLink {
+    display: none;
+  }
+  .sideBar .sideBarContainer .mobPost {
+    position: absolute;
+    top: -90%;
+    left: 40%;
+    right: 0;
+  }
+  .sideBar .sideBarContainer .postTab {
+    background: #381750;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .sideBar .sideBarContainer .postTab .sidebarIcon {
+    margin-right: 0;
+  }
+  .sideBar .sideBarContainer .postTab .svgIcon {
+    height: 30px;
+    width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+  }
+  .sideBar .sideBarContainer .postTab .svgIcon path {
+    stroke: white !important;
+  }
+  .middleSectionContainer {
+    padding: 40px 2% 100px 2%;
+    min-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .searchBarSection {
+    display: none;
+  }
 }
 /*# sourceMappingURL=profile.css.map */

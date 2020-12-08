@@ -187,10 +187,10 @@ const CreateBlog = ({ router }) => {
         )
     }
     return (
-        <div className="container-fluid mx-4">
+        <div className="container-fluid mx-md-4">
 
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-12 col-md-8">
                     {createBlogForm()}
                     <div className="px-4">
                     <ToastContainer
@@ -208,7 +208,7 @@ const CreateBlog = ({ router }) => {
                         {/* {showSuccess()} */}
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-12 col-md-4">
                     <div>
                         <div className="form-group pb-2">
                             <h5>Featured Image</h5>
