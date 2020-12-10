@@ -87,7 +87,7 @@ const SingleBlog = ({ blog, query }) => {
     const showComments = () => {
         return(
             <div>
-            {console.log({blog})}
+            {/* {console.log({blog})} */}
                 <DisqusThread id={blog._id} title={blog.title} path={`/blog/${blog.slug}`}/>
             </div>
         )

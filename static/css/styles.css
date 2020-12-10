@@ -159,6 +159,10 @@ h1 {
   color: purple;
 }
 
+.blogBody {
+  word-break: break-all;
+}
+
 .blogBody img {
   height: auto;
   width: auto;

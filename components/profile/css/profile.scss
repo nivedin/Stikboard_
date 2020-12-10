@@ -294,6 +294,9 @@
             }
            
         }
+        .postDesc{
+            word-break: break-all;
+        }
     }
     .userPostFooter{
         display: flex;
@@ -434,7 +437,7 @@
     //////
 
     .userProfilePhoto{
-        height: auto;
+        height: 5rem !important;
         width: 5rem !important;
         border-radius: 50%;
         img{

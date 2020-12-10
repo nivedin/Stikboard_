@@ -397,6 +397,10 @@
           transform: scale(1.1);
 }
 
+.userSinglePostContainer .userPostBody .postDesc {
+  word-break: break-all;
+}
+
 .userSinglePostContainer .userPostFooter {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -552,7 +556,7 @@
             flex-direction: column;
   }
   .userProfilePhoto {
-    height: auto;
+    height: 5rem !important;
     width: 5rem !important;
     border-radius: 50%;
   }
