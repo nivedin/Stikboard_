@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { userPublicProfile } from '../../actions/user'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import ContactForm from '../../components/form/ContactForm'
+import {Img} from 'react-image'
 
 const UserProfile = ({ user, blogs, query }) => {
 
@@ -28,7 +29,11 @@ const UserProfile = ({ user, blogs, query }) => {
         </Head>
     )
 
-
+    const myComponent = () => (
+        <Img
+          src='/images/blank-profile-picture.webp'
+        />
+      )
 
     const showUserBlogs = () => {
         return blogs.map((blog, i) => {
@@ -57,11 +62,19 @@ const UserProfile = ({ user, blogs, query }) => {
                                     <div className="row">
                                         <div className="col-md-8">
                                             <h5>{user.name}</h5>
+                                            {console.log(user)}
                                             <p className="text-muted">Joined {moment(user.createdAt).fromNow()}</p>
                                         </div>
                                         <div className="col-md-4">
-                                            <img
+                                            {/* <img
                                                 src={`${API}/user/photo/${user.username}`}
+                                                className="img img-fluid img-thumbnail mb-3"
+                                                style={{ height: '10rem', width: '10rem', borderRadius: '50%' }}
+                                                alt="user profile"
+                                            /> */}
+                                            <Img
+                                                src={[`${API}/user/photo/${user.username}`, "/images/blank-profile-picture.webp"]}
+                                                unloader={myComponent}
                                                 className="img img-fluid img-thumbnail mb-3"
                                                 style={{ height: '10rem', width: '10rem', borderRadius: '50%' }}
                                                 alt="user profile"

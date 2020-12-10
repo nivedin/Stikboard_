@@ -27,6 +27,7 @@ const UserDetails = () => {
     });
 
     const [allBlogs, setBlogs] = useState([])
+    const [usernameForNow,setUsernameForNow] = useState("")
 
     const token = getCookie('token');
 
@@ -44,7 +45,10 @@ const UserDetails = () => {
         userData
     } = values;
 
+
     const init = () => {
+         
+        setUsernameForNow(isAuth().username)
         getProfile(token).then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
@@ -60,21 +64,7 @@ const UserDetails = () => {
             }
         });
 
-
-    };
-
-    useEffect(() => {
-        init();
-        setValues({ values });
-    }, []);
-
-
-    let usernameForNow
-
-    useEffect(() => {
-        usernameForNow = isAuth().username
-
-        userPublicProfile(usernameForNow).then(data => {
+        userPublicProfile(isAuth().username).then(data => {
             // console.log(data);
             if (data.error) {
                 console.log(data.error);
@@ -83,6 +73,22 @@ const UserDetails = () => {
                 setBlogs(data.blogs)
             }
         })
+    };
+
+    useEffect(() => {
+        init();
+        setValues({ values });
+       
+    }, []);
+
+
+    
+
+    useEffect(() => {
+       
+
+       
+       
 
     }, []);
 
@@ -91,6 +97,13 @@ const UserDetails = () => {
         <Img
             src='/images/blank-profile-picture.webp'
         />
+    )
+    const showProfileImage = () => (
+        <Img
+        src={[`${API}/user/photo/${usernameForNow}`, "/images/blank-profile-picture.webp"]}
+        unloader={myComponent}
+        alt="user profile"
+    />
     )
 
     // { console.log(blogs); }
@@ -118,10 +131,11 @@ const UserDetails = () => {
                 <div className="userProfileTop">
                     <div className="userTopContainer">
                         <div className="userProfilePhoto">
-                            <Img
+                            {/* <Img
                                 src={[`${API}/user/photo/${usernameForNow}`, "/images/blank-profile-picture.webp"]}
                                 unloader={myComponent}
-                            />
+                            /> */}
+                            {showProfileImage()}
                         </div>
                         <div className="userProfileRatingConnections">
                             {/* <p className="userRating">7.1</p>

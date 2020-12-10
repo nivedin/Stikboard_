@@ -5,6 +5,7 @@ import Router from 'next/router';
 import { getCookie, isAuth, updateUser } from '../../actions/auth';
 import { getProfile, update } from '../../actions/user';
 import { API } from '../../config';
+import {Img} from 'react-image'
 
 const ProfileUpdate = () => {
     const [values, setValues] = useState({
@@ -57,6 +58,11 @@ const ProfileUpdate = () => {
         init();
         setValues({ ...values, userData: new FormData() });
     }, []);
+    const myComponent = () => (
+        <Img
+          src='/images/blank-profile-picture.webp'
+        />
+      )
 
     const handleChange = name => e => {
         // console.log(e.target.value);
@@ -71,6 +77,7 @@ const ProfileUpdate = () => {
         e.preventDefault();
 
         setValues({ ...values, loading: true });
+        
         update(token, userData).then(data => {
             if (data.error) {
                 console.log('data.error', data.error);
@@ -92,12 +99,57 @@ const ProfileUpdate = () => {
         });
     };
 
+    // useEffect(() => {
+       
+       
+    //     setValues({...values,username_for_photo:username});   
+    //     window.location.reload(); 
+       
+    // },[username_for_photo])
+
+
+    const handlePhotoUpload = (event) => {
+        //
+        const value =  event.target.files[0] ;
+        userData.set('photo', value);
+        setValues({ ...values,['photo']: value, userData, error: false, success: false });
+
+        // setValues({ ...values, loading: true });
+        update(token, userData).then(data => {
+            if (data.error) {
+                console.log('data.error', data.error);
+                setValues({ ...values, error: data.error, loading: false });
+            } else {
+                updateUser(data, () => {
+                    setValues({
+                        ...values,
+                        success: true,
+                        loading: false
+                    });
+                });
+                window.location.reload(); 
+            }
+        });
+
+
+    }
+
+    const showProfileImage = () => (
+        <Img
+        src={[`${API}/user/photo/${username_for_photo}`, "/images/blank-profile-picture.webp"]}
+        unloader={myComponent}
+        className="img img-fluid img-thumbnail mb-3"
+        style={{ maxHeight: 'auto', maxWidth: '100%' }}
+        alt="user profile"
+    />
+    )
+
     const profileUpdateForm = () => (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label className="btn btn-outline-info">
                     Profile photo
-                    <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
+                    <input onChange={handlePhotoUpload} type="file" accept="image/*" hidden />
                 </label>
             </div>
             <div className="form-group">
@@ -156,12 +208,13 @@ const ProfileUpdate = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <img
+                        {/* <img
                             src={`${API}/user/photo/${username_for_photo}`}
                             className="img img-fluid img-thumbnail mb-3"
                             style={{ maxHeight: 'auto', maxWidth: '100%' }}
                             alt="user profile"
-                        />
+                        /> */}
+                        {showProfileImage()}
                     </div>
                     <div className="col-md-8 mb-5">{profileUpdateForm()}</div>
                 </div>

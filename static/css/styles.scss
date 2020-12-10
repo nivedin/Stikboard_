@@ -130,6 +130,34 @@ h1{
         max-width: 100%;
     }
 }
+.blogUsername{
+    position: relative;
+    &::after{
+        position: absolute;
+        content: "";
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: #381750;
+        transition: all 0.3s linear;
+    }
+    &:hover::after{
+        width: 0;
+
+    }
+}
+
+.imagePreview{
+    width: 100%;
+    height: auto;
+  
+    margin-bottom: 50px;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
 
 
 @media screen and (max-width: 720px){

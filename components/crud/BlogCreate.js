@@ -47,6 +47,33 @@ const CreateBlog = ({ router }) => {
     const { error, sizeError, success, formData, title, hidePublishButton } = values;
     const token = getCookie('token')
 
+    const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState()
+
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        // free memory when ever this component is unmounted
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile])
+
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        // I've kept this example simple by using the first image instead of multiple
+        setSelectedFile(e.target.files[0])
+    }
+
+
     useEffect(() => {
         setValues({ ...values, formData: new FormData() })
         initCategories();
@@ -84,6 +111,9 @@ const CreateBlog = ({ router }) => {
                 setBody('')
                 setCategories('')
                 setTags('')
+                setSelectedFile('')
+                initCategories();
+                initTags();
             }
         })
     }
@@ -91,13 +121,15 @@ const CreateBlog = ({ router }) => {
     const handleChange = name => e => {
         const value = name === 'photo' ? e.target.files[0] : e.target.value
         formData.set(name, value)
-        setValues({ ...values, [name]: value, formData: formData,error:''})
+        setValues({ ...values, [name]: value, formData: formData, error: '', success: '' })
+
+        name === 'photo' ? onSelectFile(e) : ''
 
     }
 
     const handleBody = e => {
         setBody(e)
-        setValues({ ...values,error:''})
+        setValues({ ...values, error: '', success: '' })
         formData.set('body', e)
         if (typeof window !== 'undefined') {
             localStorage.setItem('blog', JSON.stringify(e))
@@ -158,15 +190,15 @@ const CreateBlog = ({ router }) => {
         )
     }
 
-    success ? toast.info(`${success}`) : ''
-    error ? toast.error(`${error}`)  : ''
 
-    // const showError = () => (
-    //     <div className="alert alert-danger" style={{ display: error ? '' : 'none' }} >{error}</div>
-    // )
-    // const showSuccess = () => (
-    //     <div className="alert alert-success" style={{ display: success ? '' : 'none' }}>{success}</div>
-    // )
+
+
+    const showError = () => (
+        error ? toast.error(`${error}`) : ''
+    )
+    const showSuccess = () => (
+        success ? toast.info(`${success}`) : ''
+    )
 
     const createBlogForm = () => {
         return (
@@ -187,25 +219,27 @@ const CreateBlog = ({ router }) => {
         )
     }
     return (
-        <div className="container-fluid mx-md-4">
-
+        <div className="container-fluid ">
+            <div className="imagePreview">
+                {selectedFile && <img src={preview} />}
+            </div>
             <div className="row">
                 <div className="col-12 col-md-8">
                     {createBlogForm()}
                     <div className="px-4">
-                    <ToastContainer
-            position="top-right"
-            autoClose={2200}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-        />
-                        {/* {showError()} */}
-                        {/* {showSuccess()} */}
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={2200}
+                            hideProgressBar={false}
+                            newestOnTop
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                        />
+                        {error && showError()}
+                        {success && showSuccess()}
                     </div>
                 </div>
                 <div className="col-12 col-md-4">

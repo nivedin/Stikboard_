@@ -100,15 +100,15 @@ const SingleBlog = ({ blog, query }) => {
                     <article>
                         <div className="container-fluid" style={{paddingTop:'100px'}}>
                             <section>
-                                <div className="row">
-                                    <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" />
+                                <div className="row" style={{backgroundImage:"url({`${API}/blog/photo/${blog.slug}`})"}}>
+                                    {/* <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" /> */}
                                 </div>
                             </section>
                             <section>
                                 <div className="container">
                                     <h1 className="display-2 mt-2 mb-2 font-weight-bold">{blog.title}</h1>
                                     <p className="lead mt-3 pb-2">
-                                        Written by <Link href={`/profile/${blog.postedBy.username}`}><a>{blog.postedBy.username}</a></Link> | Published {moment(blog.updatedAt).fromNow()}
+                                        Written by <Link href={`/profile/${blog.postedBy.username}`}><a className="blogUsername">{blog.postedBy.username}</a></Link> | Published {moment(blog.updatedAt).fromNow()}
                                     </p>
 
                                     <div className="pb-3">

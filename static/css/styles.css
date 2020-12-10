@@ -165,6 +165,37 @@ h1 {
   max-width: 100%;
 }
 
+.blogUsername {
+  position: relative;
+}
+
+.blogUsername::after {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #381750;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.blogUsername:hover::after {
+  width: 0;
+}
+
+.imagePreview {
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.imagePreview img {
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (max-width: 720px) {
   .navMobCollapse {
     margin-left: 0;

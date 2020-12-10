@@ -38,7 +38,8 @@
                 color: rgb(63, 63, 63);
             }
             &:hover .sidebarIcon .svgIcon path{
-                fill: purple !important;
+                fill: #381750 !important;
+                //stroke: #381750 !important;
             }
         }
         .sidebarIcon{
@@ -101,7 +102,8 @@
 .userDetailContent{
     width: 100%;
     height: 40vh;
-    border: 2px solid rgb(223, 223, 223);
+    border: 2px solid rgb(243, 243, 243);
+    box-shadow: 0px 0px 10px -2px rgb(214, 214, 214);
     border-radius: 5px;
 
     .userProfileTop{
@@ -116,8 +118,10 @@
             margin: 0 auto;
         
         .userProfilePhoto{
-            height: auto;
+            height: 7rem;
             width: 7rem;
+            //border: 2px solid rgb(238, 238, 238);
+            box-shadow: 0px 0px 10px -2px rgb(116, 116, 116);
             border-radius: 50%;
             img{
                 height: 100%;
@@ -205,7 +209,8 @@
 
 .userSinglePostContainer{
     margin: 10px 0;
-    border: 2px solid rgb(223, 223, 223);
+    border: 2px solid rgb(243, 243, 243);
+    box-shadow: 0px 0px 10px -2px rgb(214, 214, 214);
     padding: 2%;
     border-radius: 5px;
     .userPostTitle{
@@ -245,6 +250,8 @@
         .editBlog{
             cursor: pointer;
             margin-right: 14px;
+            background: transparent;
+            border: none;
             svg{
                 height: 18px;
                 width: 18px;
@@ -275,6 +282,7 @@
             height: 15rem;
             width: 100%;
             overflow: hidden;
+            margin: 10px 0;
             img{
                 cursor: pointer;
                 height: 100%;
@@ -300,6 +308,7 @@
             &:hover{
                 background: #381750;
                 color: white;
+                box-shadow: 0px 0px 10px -2px #381750;
             }
         }
         div{
