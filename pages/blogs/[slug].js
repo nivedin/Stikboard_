@@ -9,6 +9,7 @@ import { singleBlog, listRelated } from '../../actions/blog'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import SmallCard from '../../components/blog/SmallCard'
 import DisqusThread from '../../components/DisqusThread'
+import {Img} from 'react-image'
 
 
 
@@ -92,6 +93,12 @@ const SingleBlog = ({ blog, query }) => {
         )
     }
 
+    const myComponent = () => (
+        <Img
+          src='/images/blank-profile-picture.webp'
+        />
+      )
+
     return (
         <React.Fragment>
             {head()}
@@ -100,8 +107,11 @@ const SingleBlog = ({ blog, query }) => {
                     <article>
                         <div className="container-fluid" style={{paddingTop:'100px'}}>
                             <section>
-                                <div className="row" style={{backgroundImage:"url({`${API}/blog/photo/${blog.slug}`})"}}>
+                                <div className="row">
                                     {/* <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" /> */}
+                                    <Img
+                                        src={[`${API}/blog/photo/${blog.slug}`, "/images/blank-profile-picture.webp"]}  unloader={myComponent} alt={blog.title} className="img img-fluid featured-image"
+                                    />
                                 </div>
                             </section>
                             <section>

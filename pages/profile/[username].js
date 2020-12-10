@@ -55,15 +55,16 @@ const UserProfile = ({ user, blogs, query }) => {
             {head()}
             <Layout>
                 <div className="container" style={{paddingTop:'140px'}}>
-                    <div className="row">
-                        <div className="col-md-12">
+                    <div className="row ">
+                        <div className="col-md-12 ">
                             <div className="card">
                                 <div className="card-body">
-                                    <div className="row">
+                                    <div className="row align-items-center ">
                                         <div className="col-md-8">
                                             <h5>{user.name}</h5>
                                             {console.log(user)}
-                                            <p className="text-muted">Joined {moment(user.createdAt).fromNow()}</p>
+                                            <p className="text-muted"><small>  Joined {moment(user.createdAt).fromNow()}</small></p>
+                                            <p ><q>{user.about}</q></p>
                                         </div>
                                         <div className="col-md-4">
                                             {/* <img
