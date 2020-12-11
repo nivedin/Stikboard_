@@ -58,6 +58,7 @@ const ProfileUpdate = () => {
         init();
         setValues({ ...values, userData: new FormData() });
     }, []);
+    
     const myComponent = () => (
         <Img
           src='/images/blank-profile-picture.webp'
