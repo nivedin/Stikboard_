@@ -324,11 +324,23 @@ h1 {
   color: #ffffff;
 }
 
+.mobSearchView {
+  display: none !important;
+}
+
 @media screen and (max-width: 720px) {
   .navMobCollapse {
     margin-left: 0;
     min-width: 100vw;
     background: rgba(124, 124, 124, 0.651);
+  }
+  .mobSearchView {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .deskSearchView {
+    display: none;
   }
 }
 /*# sourceMappingURL=styles.css.map */

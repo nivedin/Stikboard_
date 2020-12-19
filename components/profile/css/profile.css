@@ -565,6 +565,10 @@
     width: 100%;
     border-radius: 50%;
   }
+  .userTopContainer {
+    width: 95% !important;
+    margin: 0 auto !important;
+  }
   .userProfileRatingConnections {
     -webkit-transform: translate(0, 10%) !important;
             transform: translate(0, 10%) !important;
@@ -573,10 +577,18 @@
     color: #b3b3b3 !important;
   }
   .userProfileRatingConnections p {
+    margin-right: 15px !important;
     font-size: 1.8rem !important;
   }
-  .searchBarSection {
-    display: none;
+  .mobSearchView {
+    display: unset;
+  }
+  .mobSearchView button {
+    background: transparent;
+    color: #381750;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
   }
 }
 /*# sourceMappingURL=profile.css.map */

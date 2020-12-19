@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getCookie, isAuth } from '../../actions/auth'
 import { getProfile, userPublicProfile } from '../../actions/user';
 import Link from 'next/link'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { Img } from 'react-image'
 
@@ -27,7 +28,20 @@ const UserDetails = () => {
     });
 
     const [allBlogs, setBlogs] = useState([])
+   
     const [usernameForNow,setUsernameForNow] = useState("")
+    const [allFollow, setFollow] = useState({
+        allFollowings:[],
+        allFollowers:[],
+    })
+
+    const {allFollowings,allFollowers} = allFollow;
+
+    const [modal1, setModal1] = useState(false);
+    const toggle1 = () => setModal1(!modal1);
+
+    const [modal2, setModal2] = useState(false);
+    const toggle2 = () => setModal2(!modal2);
 
     const token = getCookie('token');
 
@@ -76,9 +90,15 @@ const UserDetails = () => {
             }
             else {
                 setBlogs(data.blogs)
+                setFollow({
+                    allFollowers:data.user.followers,
+                    allFollowings:data.user.following
+                })
             }
         })
     };
+
+    console.log("allFollow",allFollowers,allFollowings);
 
     useEffect(() => {
         init();
@@ -120,6 +140,63 @@ const UserDetails = () => {
 
     // }
 
+    const showAllFollowers = () => {
+        if (allFollowers && allFollowers.length != 0) {
+            return allFollowers.map((follower, i) => {
+                return (
+                    <div key={i} className="userProfTabView">
+                        <a href={`/profile/${follower.username}`}>
+                            <p><span>
+                                <Img
+                                    src={[`${API}/user/photo/${follower.username}`, "/images/blank-profile-picture.webp"]}
+                                    unloader={myComponent}
+                                    className="img img-fluid "
+                                    style={{ height: '2.5rem', width: '2.5rem', borderRadius: '50%' }}
+                                    alt="user profile"
+                                />
+                            </span><span><span>{follower.username}</span><span>{follower.name}</span></span>
+                            </p>
+                        </a>
+                    </div>
+                )
+            })
+
+        } else {
+            return <p>No users found</p>
+        }
+
+
+    }
+    const showAllFollowing = () => {
+        if (allFollowings && allFollowings.length != 0) {
+            return allFollowings.map((following, i) => {
+                return (
+                    <div key={i} className="userProfTabView">
+                        <a href={`/profile/${following.username}`}>
+                            <p>
+                                <span>
+                                    <Img
+                                        src={[`${API}/user/photo/${following.username}`, "/images/blank-profile-picture.webp"]}
+                                        unloader={myComponent}
+                                        className="img img-fluid "
+                                        style={{ height: '2.5rem', width: '2.5rem', borderRadius: '50%' }}
+                                        alt="user profile"
+                                    />
+                                </span><span><span>{following.username}</span><span>{following.name}</span></span>
+                            </p>
+                        </a>
+                    </div>
+                )
+            })
+        } else {
+            return <p>No users found</p>
+        }
+    }
+
+    console.log("followers",followers)
+    console.log("following",followings)
+
+
 
     return (
         <React.Fragment>
@@ -137,11 +214,35 @@ const UserDetails = () => {
                             {/* <p className="userRating">7.1</p>
                             <p className="userConnections">564</p> */}
                             <p className="noPosts"><span>{allBlogs.length}</span><span>Posts</span></p>
-                            <p className="noPosts"><span>{followers ? followers.length : '0'}</span><span>Followers</span></p>
-                            <p className="noPosts"><span>{followings ? followings.length : '0'}</span><span>Following</span></p>
+                            <p className="noPosts"><span onClick={toggle1}>{followers ? followers.length : '0'}</span><span>Followers</span></p>
+                            <p className="noPosts"><span onClick={toggle2}>{followings ? followings.length : '0'}</span><span>Following</span></p>
                         </div>
                     </div>
                 </div>
+                  {/* //followers/// */}
+                  <Modal isOpen={modal1} toggle={toggle1} className="buttonLabel1">
+                                            <ModalHeader toggle={toggle1}>Followers</ModalHeader>
+                                            <ModalBody>
+                                                {showAllFollowers()}
+                                            </ModalBody>
+                                            {/* <ModalFooter>
+                                                <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+                                                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                                            </ModalFooter> */}
+                                        </Modal>
+                                        {/* ///followers// */}
+                                        {/* //following/// */}
+                                        <Modal isOpen={modal2} toggle={toggle2} className="buttonLabel2">
+                                            <ModalHeader toggle={toggle2}>Following</ModalHeader>
+                                            <ModalBody>
+                                                {showAllFollowing()}
+                                            </ModalBody>
+                                            {/* <ModalFooter>
+                                                <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+                                                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                                            </ModalFooter> */}
+                                        </Modal>
+                                        {/* //following/// */}
                 <div className="userProfBottom">
                     <div className="nameEditCont">
                         <p className="userName">{username}</p>

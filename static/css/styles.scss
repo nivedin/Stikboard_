@@ -202,10 +202,8 @@ h1{
     }
 }
 //user-follow-post//
-
-
-///user-search///
-.userSearch{
+  ///user-search///
+  .userSearch{
     padding: 0 2%;
     .userProfTabView{
         padding: 2.5% 2% ;
@@ -243,7 +241,12 @@ h1{
         }
     }
 }
+.mobSearchView{
+    display: none !important;
+}
 ///user-search///
+
+
 
 
 @media screen and (max-width: 720px){
@@ -252,5 +255,12 @@ h1{
         min-width: 100vw;
         background:rgba(124, 124, 124, 0.651) ;
     }
+    .mobSearchView{
+        display: flex !important ;
+    }
+    .deskSearchView{
+        display: none;
+    }
+    
 
 }

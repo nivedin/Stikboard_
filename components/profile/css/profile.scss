@@ -328,6 +328,7 @@
         position: fixed;
         min-width: 20%;
     }
+  
 }
 
 @media screen and (max-width: 720px){
@@ -446,21 +447,36 @@
             border-radius: 50%;
         }
     }
-
+    .userTopContainer{
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
     .userProfileRatingConnections{
         transform: translate(0,10%) !important;
+        
         .noPosts{
             span:nth-child(2){
                 color: rgb(179, 179, 179) !important;
             }
         }
         p{
+            margin-right: 15px !important;
             font-size: 1.8rem !important;
         }
     }
     //////
 .searchBarSection{
-   display: none;
+//    display: none;
+}
+.mobSearchView{
+    display: unset;
+    button{
+        background: transparent;
+        color: #381750;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+    }
 }
 
     
