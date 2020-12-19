@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from '../blog/Search'
+import SearchUser from '../users/SearchUser'
 
 import './css/profile.css'
 
@@ -9,7 +10,7 @@ const SearchBar = () => {
         <React.Fragment>
             <div className="searchBarSection">
                 <div className="searchBarContainer">
-                    {/* <Search/> */}
+                    <SearchUser/>
                </div>
             </div>
         </React.Fragment>

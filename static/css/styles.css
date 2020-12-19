@@ -199,6 +199,131 @@ h1 {
   width: 100%;
 }
 
+.followUnfollowList p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+}
+
+.followUnfollowList p span:nth-child(1) {
+  font-size: 1.9rem;
+  color: #2c2c2c;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.followUnfollowList p span:nth-child(2) {
+  color: #969696;
+  font-weight: 500;
+}
+
+.userProfTabView p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfTabView p span:nth-child(2) {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.userProfTabView p span:nth-child(2) span:nth-child(1) {
+  font-weight: 500;
+}
+
+.userProfTabView p span:nth-child(2) span:nth-child(2) {
+  margin-left: 0;
+  font-size: 0.8rem;
+  color: #505050;
+}
+
+.userSearch {
+  padding: 0 2%;
+}
+
+.userSearch .userProfTabView {
+  padding: 2.5% 2%;
+}
+
+.userSearchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 2px solid #dddddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.userSearchBar input {
+  width: 80%;
+  border: none;
+}
+
+.userSearchBar input::-webkit-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input:-ms-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input::-ms-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input::placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.userSearchBar button {
+  width: 20%;
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 5px;
+}
+
+.userSearchBar button:hover {
+  background: #381750;
+}
+
+.userSearchBar button:hover svg {
+  color: #ffffff;
+}
+
 @media screen and (max-width: 720px) {
   .navMobCollapse {
     margin-left: 0;

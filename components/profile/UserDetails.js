@@ -37,6 +37,8 @@ const UserDetails = () => {
         name,
         email,
         about,
+        followers,
+        followings,
         password,
         error,
         success,
@@ -50,6 +52,7 @@ const UserDetails = () => {
          
         setUsernameForNow(isAuth().username)
         getProfile(token).then(data => {
+            console.log(data);
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
@@ -59,7 +62,9 @@ const UserDetails = () => {
                     username_for_photo: data.username,
                     name: data.name,
                     email: data.email,
-                    about: data.about
+                    about: data.about,
+                    followers:data.followers,
+                    followings:data.following
                 });
             }
         });
@@ -83,15 +88,6 @@ const UserDetails = () => {
 
 
     
-
-    useEffect(() => {
-       
-
-       
-       
-
-    }, []);
-
 
     const myComponent = () => (
         <Img
@@ -141,6 +137,8 @@ const UserDetails = () => {
                             {/* <p className="userRating">7.1</p>
                             <p className="userConnections">564</p> */}
                             <p className="noPosts"><span>{allBlogs.length}</span><span>Posts</span></p>
+                            <p className="noPosts"><span>{followers ? followers.length : '0'}</span><span>Followers</span></p>
+                            <p className="noPosts"><span>{followings ? followings.length : '0'}</span><span>Following</span></p>
                         </div>
                     </div>
                 </div>

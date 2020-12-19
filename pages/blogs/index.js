@@ -78,7 +78,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return (
             categories.map((c, i) => (
                 <Link href={`/categories/${c.slug}`} key={i}>
-                    <a className="btn btn-primary mr-2">
+                    <a className="btn btn-primary mr-2 mb-4">
                         {c.name}
                     </a>
                 </Link>
@@ -90,7 +90,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return (
             tags.map((t, i) => (
                 <Link href={`/tags/${t.slug}`} key={i}>
-                    <a className="btn btn-outline-success mr-2">
+                    <a className="btn btn-outline-success mr-2 mb-4">
                         {t.name}
                     </a>
                 </Link>
