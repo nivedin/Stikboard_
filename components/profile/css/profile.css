@@ -26,8 +26,18 @@
 }
 
 .sideBar .sideBarContainer ul {
-  -webkit-transform: translateY(-15%);
-          transform: translateY(-15%);
+  width: 100%;
+  max-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .sideBar .sideBarContainer li {
@@ -35,8 +45,17 @@
   margin: 20px 0;
 }
 
+.sideBar .sideBarContainer .activeSidebar {
+  background: #3817502d;
+  color: #381750;
+}
+
+.sideBar .sideBarContainer .activeSidebar .sidebarIcon .svgIcon path {
+  fill: #381750 !important;
+}
+
 .sideBar .sideBarContainer a {
-  width: 105%;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,8 +65,9 @@
   min-height: 30px;
   -webkit-transition: all 0.35s linear;
   transition: all 0.35s linear;
-  border-radius: 10px;
-  padding: 0 2%;
+  border-radius: 50px;
+  margin: 0 auto;
+  padding: 0 3%;
 }
 
 .sideBar .sideBarContainer a:hover {
@@ -61,8 +81,7 @@
 
 .sideBar .sideBarContainer .sidebarIcon {
   min-height: 50px;
-  min-width: 60px;
-  max-width: 60px;
+  min-width: 50%;
   margin-right: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,6 +143,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-top: 5px;
 }
 
 .userDetailContent {
@@ -358,6 +378,12 @@
   color: #5f218b;
 }
 
+.userSinglePostContainer .userPostTitle .editBlog:active {
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+}
+
 .userSinglePostContainer .userPostBody {
   padding: 2% 0;
 }
@@ -425,11 +451,30 @@
           box-shadow: 0px 0px 10px -2px #381750;
 }
 
-.userSinglePostContainer .userPostFooter div {
-  margin-right: 10px;
+.userSinglePostContainer .likeCmntShare {
+  border-top: 2px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+.userSinglePostContainer .likeCmntShare div {
+  margin-right: 20px;
+}
+
+.userSinglePostContainer .likeCmntShare div svg {
+  height: 25px;
+  cursor: pointer;
+}
+
+.userSinglePostContainer .likeCmntShare div svg:hover {
+  color: #5e5e5e;
 }
 
 .searchBarSection {
+  padding-top: 10px;
   min-width: 20%;
 }
 
@@ -453,7 +498,10 @@
     width: 100%;
     height: 10vh;
     bottom: 0;
-    background: #a5a5a5;
+    background: rgba(255, 255, 255, 0.973) !important;
+    -webkit-box-shadow: 0 -5px 12px -9px #6f6f6f !important;
+            box-shadow: 0 -5px 12px -9px #6f6f6f !important;
+    z-index: 5 !important;
   }
   .sideBar .sideBarContainer ul {
     -webkit-transform: translateY(-15%);
@@ -461,6 +509,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -475,6 +527,7 @@
   }
   .sideBar .sideBarContainer a {
     width: 100%;
+    border-radius: 50%;
   }
   .sideBar .sideBarContainer .sidebarIcon {
     min-height: 50px;

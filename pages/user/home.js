@@ -1,21 +1,35 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import ProfileLayout from '../../components/profile/ProfileLayout'
-import { useState } from 'react'
 import { listBlogsWithCategoriesAndTags } from '../../actions/blog'
 import Card from '../../components/blog/Card'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
+import UserSinglePost from '../../components/profile/UserSinglePost'
+import { isAuth } from '../../actions/auth'
 
 
-const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
+const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
+
+    const [userId, setUserId] = useState("")
+    const [username, setUsername] = useState("")
+
+
+    const init = () => {
+        setUserId(isAuth()._id)
+        setUsername(isAuth().username)
+    }
+    useEffect(() => {
+        init()
+        
+    }, [])
 
 
     const head = () => (
         <Head>
-            <title>Blogs | {APP_NAME}</title>
+            <title>{username} | {APP_NAME}</title>
             <meta name="description" content="Programming blogs,travell,photograp like a social media platform" />
             <link rel="canonical" href={`${DOMAIN}${router.pathname}`} />
             <meta property="og:title" content={`Latest web blogs and news | ${APP_NAME}`} />
@@ -64,12 +78,13 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     };
 
     const showAllBlogs = () => {
-        return blogs.map((blog, i) => {
+        return blogs.filter(blog => blog.postedBy._id !== userId).map((blog, i) => {
             return (
-                <article key={i}>
-                    <Card blog={blog} />
-                    <hr />
-                </article>
+                // <article key={i}>
+                //     <Card blog={blog} />
+                //     <hr />
+                // </article>
+                <UserSinglePost blog={blog} key={i}/>
             )
         })
     }
@@ -101,18 +116,19 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     const showLoadedBlogs = () => {
         return loadedBlogs.map((blog, i) => (
-            <article key={i}>
-                <Card blog={blog} />
-            </article>
+            // <article key={i}>
+            //     <Card blog={blog} />
+            // </article>
+            <UserSinglePost blog={blog} key={i}/>
         ));
     };
 
     return (
         <React.Fragment>
             {head()}
-            <Layout>
-                <main style={{paddingTop:'140px'}}>
-                    <div className="container-fluid">
+            <ProfileLayout>
+                <main style={{paddingTop:'0'}} >
+                    {/* <div className="container-fluid">
                         <header>
                             <div className="col-md-12 px-3">
                                 <h1 className="display-4 font-weight-bold text-center">Blog List</h1>
@@ -125,7 +141,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                 </div>
                             </section>
                         </header>
-                    </div>
+                    </div> */}
                     <div className="container-fluid">
                         {showAllBlogs()}
                     </div>
@@ -134,15 +150,15 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                     </div>
                     <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>
                 </main>
-            </Layout>
+            </ProfileLayout>
         </React.Fragment>
 
     )
 }
 
-Blogs.getInitialProps = () => {
+HomeBlogs.getInitialProps = () => {
     let skip = 0;
-    let limit = 2;
+    let limit = 4;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
         if (data.error) {
             console.log(data.error);
@@ -160,5 +176,5 @@ Blogs.getInitialProps = () => {
 };
 
 
-export default withRouter(Blogs);
+export default withRouter(HomeBlogs);
 

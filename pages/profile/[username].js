@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import moment from 'moment'
@@ -11,6 +12,7 @@ import ContactForm from '../../components/form/ContactForm'
 import FollowProfileBtn from '../../components/users/FollowProfile'
 import { Img } from 'react-image';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { Router } from 'next/router'
 
 const UserProfile = ({ user, blogs, query }) => {
 
@@ -23,17 +25,22 @@ const UserProfile = ({ user, blogs, query }) => {
     const init = (user) => {
         // console.log("user", user);
         // console.log("loggeduser", isAuth());
-        const match = user.followers.find(follower => {
-            return follower._id === isAuth()._id
-        })
-        //console.log("follow", match);
-
-        if (match) {
-            // console.log("follow", match)
-            changeFollowing(true)
-        } else {
-            changeFollowing(false)
+        if(!isAuth()){
+            Router.push('/signin')
+        }else{
+            const match = user.followers.find(follower => {
+                return follower._id === isAuth()._id
+            })
+            //console.log("follow", match);
+    
+            if (match) {
+                // console.log("follow", match)
+                changeFollowing(true)
+            } else {
+                changeFollowing(false)
+            }
         }
+       
 
     }
 

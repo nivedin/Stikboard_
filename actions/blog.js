@@ -136,6 +136,81 @@ export const updateBlog = (blog,token,slug) => {
         .catch(err => console.log(err));
 };
 
+export const likeBlog = (userId,token,slug) => {
+    //console.log("Req:",userId,token,slug)
+
+    return fetch(`${API}/blog/like`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            "Content-Type":'application/json',
+            Authorization:`Bearer ${token}`        
+        },
+        body: JSON.stringify({userId,slug})
+    })
+        .then(response => {
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const unlikeBlog = (userId,token,slug) => {
+    //console.log("Req:",userId,token,slug)
+
+    return fetch(`${API}/blog/unlike`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type':'application/json',
+            Authorization:`Bearer ${token}`        
+        },
+        body: JSON.stringify({userId,slug})
+    })
+        .then(response => {
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+export const commentBlog = (userId,token,slug,comment) => {
+    //console.log("Req:",userId,token,slug)
+
+    return fetch(`${API}/blog/comment`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            "Content-Type":'application/json',
+            Authorization:`Bearer ${token}`        
+        },
+        body: JSON.stringify({userId,slug,comment})
+    })
+        .then(response => {
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const uncommentBlog = (userId,token,slug,comment) => {
+    //console.log("Req:",userId,token,slug)
+
+    return fetch(`${API}/blog/uncomment`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type':'application/json',
+            Authorization:`Bearer ${token}`        
+        },
+        body: JSON.stringify({userId,slug,comment})
+    })
+        .then(response => {
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
 
 export const listSearch = (params) => {
     let query = queryString.stringify(params)

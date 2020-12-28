@@ -6,6 +6,7 @@ import Link from 'next/link'
 import SideBar from '../../components/profile/Sidebar'
 import MiddleSection from '../../components/profile/MiddleSection'
 import SearchBar from '../../components/profile/SearchBar'
+import ProfileLayout from '../../components/profile/ProfileLayout'
 import Head from 'next/head'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import { isAuth } from '../../actions/auth'
@@ -58,9 +59,8 @@ const UserIndex = () => {
     return (
        <React.Fragment>
        {head()}
-            <Layout>
             <Private>
-            <div className="profileContent" >
+            <ProfileLayout>
                     {/* <h1 className="pt-5 pb-5">User Dashboard</h1>
                     <div className="row">
                         <div className="col-md-4">
@@ -82,13 +82,11 @@ const UserIndex = () => {
                         </div>
                         <div className="col-md-8">right</div>
                     </div> */}
-                    <SideBar />
+                    {/* <SideBar /> */}
                     <MiddleSection/>
-                    <SearchBar/>
-
-                </div>
+                    {/* <SearchBar/> */}
+                </ProfileLayout>
             </Private>
-        </Layout>
        </React.Fragment>
     )
 }

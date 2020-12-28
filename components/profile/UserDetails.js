@@ -66,7 +66,7 @@ const UserDetails = () => {
          
         setUsernameForNow(isAuth().username)
         getProfile(token).then(data => {
-            console.log(data);
+            //console.log(data);
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
@@ -98,7 +98,7 @@ const UserDetails = () => {
         })
     };
 
-    console.log("allFollow",allFollowers,allFollowings);
+    //console.log("allFollow",allFollowers,allFollowings);
 
     useEffect(() => {
         init();
@@ -193,8 +193,8 @@ const UserDetails = () => {
         }
     }
 
-    console.log("followers",followers)
-    console.log("following",followings)
+    // console.log("followers",followers)
+    // console.log("following",followings)
 
 
 
@@ -225,10 +225,6 @@ const UserDetails = () => {
                                             <ModalBody>
                                                 {showAllFollowers()}
                                             </ModalBody>
-                                            {/* <ModalFooter>
-                                                <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                                                <Button color="secondary" onClick={toggle}>Cancel</Button>
-                                            </ModalFooter> */}
                                         </Modal>
                                         {/* ///followers// */}
                                         {/* //following/// */}
@@ -237,10 +233,6 @@ const UserDetails = () => {
                                             <ModalBody>
                                                 {showAllFollowing()}
                                             </ModalBody>
-                                            {/* <ModalFooter>
-                                                <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                                                <Button color="secondary" onClick={toggle}>Cancel</Button>
-                                            </ModalFooter> */}
                                         </Modal>
                                         {/* //following/// */}
                 <div className="userProfBottom">

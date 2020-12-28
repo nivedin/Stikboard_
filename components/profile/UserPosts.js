@@ -32,14 +32,16 @@ const UserPosts = () => {
                 <h1>Start creating</h1>
             )
         }
-        return allBlogs.map((blog, i) => {
-            return (
-                <React.Fragment>
-                    <UserSinglePost blog={blog} key={i} />
-                </React.Fragment>
-            )
-
-        })
+        else{
+            return allBlogs.sort((a, b) => b.createdAt > a.createdAt ? 1 : -1).map((blog, i) => {
+                return (
+                    <React.Fragment>
+                        <UserSinglePost blog={blog} key={i} />
+                    </React.Fragment>
+                )
+    
+            })
+        }
 
     }
 
