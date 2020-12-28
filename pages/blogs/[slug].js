@@ -123,7 +123,7 @@ const SingleBlog = ({ blog, query }) => {
     const showRelatedBlogs = () => {
         return related.map((blog, i) => (
             <div className="col-md-4" key={i}>
-                <article>
+                <article className="mb-4">
                     <SmallCard blog={blog} />
                 </article>
             </div>
@@ -240,7 +240,7 @@ const SingleBlog = ({ blog, query }) => {
                         <div className="container pt-5">
                             {showComments()}
                         </div>
-                        <div className="container pt-4 pb-5">
+                        <div className="container pt-4 pb-5" style={{maxWidth:'100vw'}}>
                             <h2 className="text-center pt-5 pb-5">Related Blogs</h2>
                             <hr />
                             <div className="row">
