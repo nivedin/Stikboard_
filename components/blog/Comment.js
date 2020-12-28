@@ -7,10 +7,12 @@ function Comment({ slug, comments, updateComments }) {
 
     const [commentText, setCommentText] = useState("")
     //const [blogComments, setComments] = useState(comments)
+    const [isError, setError] = useState(false)
 
 
     const handleChange = (e) => {
         // console.log(e.target.value);
+        setError(false)
         setCommentText(e.target.value)
     }
     const handleClick = (e) => {
@@ -20,15 +22,20 @@ function Comment({ slug, comments, updateComments }) {
         // const slug = slug
         const comment = { text: commentText }
         //console.log("request", userId, token, slug, comment)
-        commentBlog(userId, token, slug, comment).then(data => {
-            if (data.error) {
-                console.log(data.error);
-            } else {
-                //console.log("data", data)
-                setCommentText("")
-                updateComments(data.comments)
-            }
-        })
+        if (commentText === "") {
+            setError(true)
+        } else {
+            commentBlog(userId, token, slug, comment).then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    //console.log("data", data)
+                    setCommentText("")
+                    updateComments(data.comments)
+                }
+            })
+        }
+
     }
 
     // console.log(commentText);
@@ -42,9 +49,13 @@ function Comment({ slug, comments, updateComments }) {
         return (
             <div >
                 <form className="commentBar">
-                    <input type="text" onChange={handleChange} value={commentText} />
+                    <input type="text" onChange={handleChange} value={commentText} className={isError ? "form-control is-invalid" : "form-control"} id="validationServer03" aria-describedby="validationServer03Feedback" required />
                     <button onClick={handleClick}><span>Comment</span></button>
+
                 </form>
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    Please provide a valid city.
+    </div>
             </div>
         )
     }

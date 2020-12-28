@@ -270,7 +270,9 @@ h1{
             font-weight: 500;
         }
         &:focus{
+            border: none;
             border-bottom: 2px solid #381750;
+            box-shadow: none;
         }
     }
     button{
