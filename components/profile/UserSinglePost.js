@@ -228,7 +228,7 @@ const UserSinglePost = (blogs) => {
             {/* ///Comment/// */}
             {console.log("comments",blog)}
             <Modal isOpen={modal1} toggle={toggle1} className="buttonLabel1">
-                                            <ModalHeader toggle={toggle1}>Followers</ModalHeader>
+                                            <ModalHeader toggle={toggle1}>Comment</ModalHeader>
                                             <ModalBody>
                                                 <Comment slug={blog.slug} comments={comments} updateComments={updateComments}/>
                                             </ModalBody>
