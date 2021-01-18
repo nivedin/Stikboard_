@@ -9,12 +9,14 @@ import Card from '../../components/blog/Card'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import UserSinglePost from '../../components/profile/UserSinglePost'
 import { isAuth } from '../../actions/auth'
+import Loader from '../../components/Loader'
 
 
 const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
 
     const [userId, setUserId] = useState("")
     const [username, setUsername] = useState("")
+    const [loading,isLoading] = useState(true)
 
 
     const init = () => {
@@ -24,6 +26,7 @@ const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, 
     useEffect(() => {
         !isAuth() && Router.push(`/signin`)
         init()
+        isLoading(false)
         
     }, [])
 
@@ -79,15 +82,29 @@ const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, 
     };
 
     const showAllBlogs = () => {
-        return blogs.filter(blog => blog.postedBy._id !== userId).map((blog, i) => {
-            return (
-                // <article key={i}>
-                //     <Card blog={blog} />
-                //     <hr />
-                // </article>
-                <UserSinglePost blog={blog} key={i}/>
-            )
-        })
+        if (blogs.length != 0) {
+            if(loading){
+                return <Loader/>
+            }else{
+                return blogs.filter(blog => blog.postedBy._id !== userId).map((blog, i) => {
+                    return (
+                        // <article key={i}>
+                        //     <Card blog={blog} />
+                        //     <hr />
+                        // </article>
+                        <UserSinglePost blog={blog} key={i}/>
+                    )
+                })
+            }
+        }
+        else{
+            if(loading){
+                return <Loader/>
+            }else{
+                <p>No post to show</p>
+            }
+        }
+        
     }
 
 
@@ -122,6 +139,7 @@ const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, 
             // </article>
             <UserSinglePost blog={blog} key={i}/>
         ));
+        
     };
 
     return (
@@ -172,6 +190,7 @@ HomeBlogs.getInitialProps = () => {
                 blogsLimit: limit,
                 blogSkip: skip
             };
+           
         }
     });
 };

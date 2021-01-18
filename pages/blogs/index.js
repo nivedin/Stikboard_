@@ -39,6 +39,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     const [size, setSize] = useState(totalBlogs);
     const [loadedBlogs, setLoadedBlogs] = useState([]);
 
+
     const loadMore = () => {
         let toSkip = skip + limit;
         listBlogsWithCategoriesAndTags(toSkip, limit).then(data => {

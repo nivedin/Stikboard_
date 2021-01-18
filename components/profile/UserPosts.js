@@ -4,6 +4,7 @@ import { API, APP_NAME } from '../../config';
 import { useState, useEffect } from 'react';
 import { getCookie, isAuth } from '../../actions/auth'
 import { getProfile, userPublicProfile } from '../../actions/user';
+import Loader from '../Loader'
 import './css/profile.css'
 
 
@@ -11,6 +12,7 @@ import './css/profile.css'
 const UserPosts = () => {
 
     const [allBlogs, setBlogs] = useState([])
+    const [loading,isLoading] = useState(true)
 
 
     useEffect(() => {
@@ -20,6 +22,7 @@ const UserPosts = () => {
                 console.log(data.error);
             }
             else {
+                isLoading(false)
                 setBlogs(data.blogs)
             }
         })
@@ -27,20 +30,26 @@ const UserPosts = () => {
     }, []);
 
     const showAllBlogs = () => {
-        if (allBlogs.length === 0) {
-            return (
-                <h1>Start creating</h1>
-            )
+        if (allBlogs.length != 0) {
+            if(loading){
+                return <Loader/>
+            }else{
+             return allBlogs.sort((a, b) => b.createdAt > a.createdAt ? 1 : -1).map((blog, i) => {
+                 return (
+                     <React.Fragment>
+                         <UserSinglePost blog={blog} key={i} />
+                     </React.Fragment>
+                 )
+     
+             })
+            }
         }
         else{
-            return allBlogs.sort((a, b) => b.createdAt > a.createdAt ? 1 : -1).map((blog, i) => {
-                return (
-                    <React.Fragment>
-                        <UserSinglePost blog={blog} key={i} />
-                    </React.Fragment>
-                )
-    
-            })
+                if(loading){
+                    return <Loader/>
+                }else{
+                    <p>Start</p>
+                }
         }
 
     }
