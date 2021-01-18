@@ -197,7 +197,7 @@ const SingleBlog = ({ blog, query }) => {
                     <article>
                         <div className="container-fluid" >
                             <section>
-                                <div className="row" style={{ height: '500px', width: '100%' }}>
+                                <div className="row" style={{ width: '100%' }}>
                                     {/* <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" /> */}
                                     <Img
                                         src={`${API}/blog/photo/${blog.slug}`} unloader={myComponent} alt={blog.title} className="img img-fluid featured-image"
