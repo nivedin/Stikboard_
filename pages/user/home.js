@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { withRouter } from 'next/router'
+import  Router,{withRouter} from 'next/router'
 import Layout from '../../components/Layout'
 import ProfileLayout from '../../components/profile/ProfileLayout'
 import { listBlogsWithCategoriesAndTags } from '../../actions/blog'
@@ -22,6 +22,7 @@ const HomeBlogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, 
         setUsername(isAuth().username)
     }
     useEffect(() => {
+        !isAuth() && Router.push(`/signin`)
         init()
         
     }, [])

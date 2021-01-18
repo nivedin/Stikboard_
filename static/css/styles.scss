@@ -253,6 +253,12 @@ h1{
 
 //comment-display//
 
+.commentNumber{
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 2%;
+    background: rgb(240, 240, 240);
+}
 .commentBar{
     display: flex;
     justify-content: space-between;
@@ -304,6 +310,21 @@ h1{
     -moz-box-shadow: 1px 6px 20px -10px rgba(119, 119, 119, 0.75);
     //border: 2px solid black;
 
+    .userDetailDelete{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button{
+            height: 16px;
+            width: 16px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+           color: red;
+        }
+    }
+
     .photoNameUserDate{
         display: flex;
         align-items: center;
@@ -337,6 +358,36 @@ h1{
 
 //comment-display//
 
+//userprofile-image//
+.profImageDate{
+    display: flex;
+    align-items: center;
+    p{
+        margin: 0;
+    }
+    .profImage{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        margin-right: 20px;
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    .userNameDate{
+        .userName{
+            font-weight: 500;
+        }
+        .postDate{
+            font-size: 0.8rem;
+            color: rgb(134, 134, 134);
+            font-weight: 500;
+        }
+    }
+}
+//userprofile-image//
 
 
 @media screen and (max-width: 720px){

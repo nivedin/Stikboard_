@@ -6,7 +6,7 @@ import { API, APP_NAME } from '../../config';
 import Link from 'next/link'
 import { removeBlog, likeBlog, unlikeBlog } from '../../actions/blog'
 import { getCookie, isAuth } from '../../actions/auth'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem ,Button,Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem ,Modal, ModalHeader, ModalBody} from 'reactstrap';
 import { Img } from 'react-image'
 import Comment from '../../components/blog/Comment'
 
@@ -23,7 +23,8 @@ const UserSinglePost = (blogs) => {
     const [modal1, setModal1] = useState(false);
 
     const toggle1 = () => {
-        loadComments()
+        setComments(comments)
+       
         setModal1(!modal1);
     }
 
@@ -68,7 +69,7 @@ const UserSinglePost = (blogs) => {
     useEffect(() => {
         setUserId(isAuth()._id)
         //setUsername(isAuth().username)
-      
+        loadComments()
         loadLike()
     }, [])
 
@@ -150,12 +151,13 @@ const UserSinglePost = (blogs) => {
             return ""
         }
     }
-    // { console.log("blogs", blog); }
+    //{ console.log("blogs", blog); }
     return (
         <React.Fragment>
             <div className="userSinglePostContainer">
                 <div className="userPostTitle">
-                    <div className="profImageDate">
+                <a href={`/profile/${blog.postedBy.username}`}>
+                <div className="profImageDate">
                         <div className="profImage">
                             <Img
                                 src={[`${API}/user/photo/${blog.postedBy.username}`, "/images/blank-profile-picture.webp"]}
@@ -170,6 +172,7 @@ const UserSinglePost = (blogs) => {
                             <p className="postDate">Created {moment(blog.createdAt).fromNow()} </p>
                         </div>
                     </div>
+                </a>
                     {/* <div className="editBlog"> */}
                     {/* <div class="editBlog dropdown ">
                         <button  class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -193,7 +196,14 @@ const UserSinglePost = (blogs) => {
                     </div>
                     <div className="postImage">
                         <Link href={`/blogs/${blog.slug}`}>
-                            <img src={`${API}/blog/photo/${blog.slug}`} alt="blogImg" style={{}} />
+                            {/* <img src={`${API}/blog/photo/${blog.slug}`} alt="blogImg" style={{}} /> */}
+                            <Img
+                    className="img img-fluid "
+                    src={[`${API}/blog/photo/${blog.slug}`]}
+                    unloader={myComponent}
+                    style={{ maxHeight: '300px', width: 'auto' }}
+                    alt={blog.title}
+                  />
                         </Link>
 
                     </div>
@@ -208,31 +218,33 @@ const UserSinglePost = (blogs) => {
                     </Link>
                 </div>
                 <div className="likeCmntShare">
-                    {/* <p>{likes}</p> */}
-                    {!isLike ? (<div className="startIco" onClick={likeToggle}>
+                <div className="startIco" onClick={likeToggle}>
+                    {/* <p>{likes}</p> */} <span class="badge rounded-pill bg-light">{likes}</span>
+                    {!isLike ? (
                         <span>
                             <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" className="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg>
                         </span>
-                    </div>) : (<div className="startIco" onClick={likeToggle}>
+                    ) : (
                         <span>
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
                         </span>
-                    </div>)}
+                    )}
+                    </div>
 
                     <div className="commentIco" onClick={toggle1}><span>
-                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="comment" className="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>                    </span></div>
+                    <span class="badge rounded-pill bg-light text-dark">{comments.length}</span> <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="comment" className="svg-inline--fa fa-comment fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"></path></svg>                    </span></div>
                     <div className="shareIco"><span>
                         <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"></path></svg>                    </span></div>
                 </div>
             </div>
             {/* ///Comment/// */}
-            {console.log("comments",blog)}
+            {/* {console.log("comments",blog)} */}
             <Modal isOpen={modal1} toggle={toggle1} className="buttonLabel1">
-                                            <ModalHeader toggle={toggle1}>Comment</ModalHeader>
-                                            <ModalBody>
-                                                <Comment slug={blog.slug} comments={comments} updateComments={updateComments}/>
-                                            </ModalBody>
-                                        </Modal>
+                <ModalHeader toggle={toggle1}>Comment</ModalHeader>
+                <ModalBody>
+                    <Comment slug={blog.slug} comments={comments} updateComments={updateComments}/>
+                </ModalBody>
+            </Modal>
             {/* ///Comment/// */}
         </React.Fragment>
     )

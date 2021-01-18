@@ -43,6 +43,26 @@ function Comment({ slug, comments, updateComments }) {
     //console.log("comments", blogComments);
     //console.log("comments", comments);
 
+    const deleteComment = (currentComment) => {
+        const userId = isAuth()._id;
+        const token = getCookie('token');
+        uncommentBlog(userId,token,slug,currentComment).then(data => {
+            if(data.error){
+                console.log(data.error)
+            }else{
+                updateComments(data.comments)
+            }
+        })
+
+    }
+
+    const deleteCommentConfirm = (currentComment) => {
+        let answer = window.confirm("Delete your comment ? ");
+        if(answer){
+            deleteComment(currentComment)
+        }
+    }
+
 
 
     const showCommentInput = () => {
@@ -64,7 +84,7 @@ function Comment({ slug, comments, updateComments }) {
         return (
             comments.sort((a, b) => b.createdOn > a.createdOn ? 1 : -1).map((comment, i) => {
                 return (
-                    <CommentDisplay comment={comment} key={i} />
+                    <CommentDisplay comment={comment} key={i} deleteComment={deleteCommentConfirm} />
                 )
             })
         )
@@ -80,6 +100,7 @@ function Comment({ slug, comments, updateComments }) {
             {/* {console.log("prop", slug)} */}
             {showCommentInput()}
             <div className="mt-5">
+            <div className="commentNumber">{comments.length} Comments</div>
                 {showAllComment()}
             </div>
         </div>

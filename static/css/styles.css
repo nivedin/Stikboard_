@@ -332,6 +332,13 @@ h1 {
   display: none !important;
 }
 
+.commentNumber {
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 2%;
+  background: #f0f0f0;
+}
+
 .commentBar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -416,6 +423,28 @@ h1 {
   -moz-box-shadow: 1px 6px 20px -10px rgba(119, 119, 119, 0.75);
 }
 
+.commentDisplay .userDetailDelete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.commentDisplay .userDetailDelete button {
+  height: 16px;
+  width: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: red;
+}
+
 .commentDisplay .photoNameUserDate {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -457,6 +486,42 @@ h1 {
 
 .commentDisplay .commentTextContainer {
   margin-top: 20px;
+  font-weight: 500;
+}
+
+.profImageDate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profImageDate p {
+  margin: 0;
+}
+
+.profImageDate .profImage {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profImageDate .profImage img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.profImageDate .userNameDate .userName {
+  font-weight: 500;
+}
+
+.profImageDate .userNameDate .postDate {
+  font-size: 0.8rem;
+  color: #868686;
   font-weight: 500;
 }
 

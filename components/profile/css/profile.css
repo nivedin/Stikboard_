@@ -405,7 +405,6 @@
 }
 
 .userSinglePostContainer .userPostBody .postImage {
-  height: 15rem;
   width: 100%;
   overflow: hidden;
   margin: 10px 0;
@@ -462,6 +461,20 @@
 
 .userSinglePostContainer .likeCmntShare div {
   margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.userSinglePostContainer .likeCmntShare div .badge {
+  top: 15px;
+  left: 20px;
+  position: absolute;
+  border: 1px solid #e2e2e2;
 }
 
 .userSinglePostContainer .likeCmntShare div svg {

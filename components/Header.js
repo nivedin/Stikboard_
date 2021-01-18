@@ -54,7 +54,7 @@ const Header = (props) => {
 )
 
 
-const noImg = '/images/blank-profile-picture.webp'
+// const noImg = '/images/blank-profile-picture.webp'
 
 
   return (
@@ -64,7 +64,7 @@ const noImg = '/images/blank-profile-picture.webp'
           <Link href="/">
             <NavLink className="navLogo">
               {/* {APP_NAME}  */}
-              <img src="/images/logo2.png" alt="logo" />
+              <img src="/images/logo2.png" alt="stikboard_logo" />
             </NavLink>
           </Link>
         </NavbarBrand>
@@ -140,6 +140,7 @@ const noImg = '/images/blank-profile-picture.webp'
                     src={[`${API}/user/photo/${isAuth().username}`, "/images/blank-profile-picture.webp"]}
                     unloader={myComponent}
                     style={{ height: '3rem', width: '3rem', borderRadius: '50%' }}
+                    alt={`profileImage_${isAuth().username}`}
                   />
                   </NavLink>
                 </DropdownToggle>

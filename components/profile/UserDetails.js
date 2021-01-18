@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getCookie, isAuth } from '../../actions/auth'
 import { getProfile, userPublicProfile } from '../../actions/user';
 import Link from 'next/link'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 import { Img } from 'react-image'
 

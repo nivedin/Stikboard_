@@ -4,12 +4,14 @@ import Head from 'next/head'
 import Link from 'next/link'
 import moment from 'moment'
 import Layout from '../../components/Layout'
+import ProfileLayout from '../../components/profile/ProfileLayout'
 import { useState, useEffect } from 'react'
 import { userPublicProfile, follow, unfollow } from '../../actions/user'
 import { getCookie, isAuth } from '../../actions/auth';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import ContactForm from '../../components/form/ContactForm'
 import FollowProfileBtn from '../../components/users/FollowProfile'
+import UserSinglePost from '../../components/profile/UserSinglePost'
 import { Img } from 'react-image';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import { Router } from 'next/router'
@@ -111,13 +113,14 @@ const UserProfile = ({ user, blogs, query }) => {
     const showUserBlogs = () => {
         return blogs.map((blog, i) => {
             return (
-                <div className="mt-4 mb-4" key={i}>
-                    <Link href={`/blogs/${blog.slug}`}>
-                        <a className="lead">
-                            {blog.title}
-                        </a>
-                    </Link>
-                </div>
+                <UserSinglePost blog={blog} key={i}/>
+                // <div className="mt-4 mb-4" key={i}>
+                //     <Link href={`/blogs/${blog.slug}`}>
+                //         <a className="lead">
+                //             {blog.title}
+                //         </a>
+                //     </Link>
+                // </div>
             )
 
         })
@@ -182,11 +185,11 @@ const UserProfile = ({ user, blogs, query }) => {
     return (
         <React.Fragment>
             {head()}
-            <Layout>
-                <div className="container" style={{ paddingTop: '140px' }}>
+            <ProfileLayout>
+                <div className="container" style={{boxShadow:'rgb(220, 220, 220) 3px 2px 7px 0px',borderRadius:'5px'}}>
                     <div className="row ">
                         <div className="col-md-12 ">
-                            <div className="card">
+                            <div className="">
                                 <div className="card-body">
                                     <div className="row align-items-center ">
                                         <div className="col-md-3">
@@ -201,7 +204,7 @@ const UserProfile = ({ user, blogs, query }) => {
                                         <div className="col-md-4">
                                             <h5>{user.name}</h5>
                                             <h6 className="text-muted">@{user.username}</h6>
-                                            {console.log(user)}
+                                            {/* {console.log(user)} */}
                                             {/* <p className="text-muted"><small>  Joined {moment(user.createdAt).fromNow()}</small></p> */}
                                             <p className="mt-4">{user.about ? <q>{user.about}</q> : ""}</p>
                                         </div>
@@ -246,19 +249,8 @@ const UserProfile = ({ user, blogs, query }) => {
                 <br />
                 <div className="container pb-5">
                     <div className="row">
-                        <div className="col-md-6">
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title bg-primary p-4">
-                                        Recent blogs by {user.name}
-                                    </h5>
-
-                                    {showUserBlogs()}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="col-md-6">
+                         {showUserBlogs()}
+                        {/* <div className="col-md-6">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title bg-primary p-4">
@@ -269,10 +261,10 @@ const UserProfile = ({ user, blogs, query }) => {
                                 </div>
                             </div>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-            </Layout>
+            </ProfileLayout>
         </React.Fragment>
     )
 }

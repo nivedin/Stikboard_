@@ -300,7 +300,7 @@
             }
         }
         .postImage{
-            height: 15rem;
+            // height: 15rem;
             width: 100%;
             overflow: hidden;
             margin: 10px 0;
@@ -344,6 +344,15 @@
         padding-top: 15px;
         div{
             margin-right: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            .badge{
+                top: 15px;
+                left: 20px;
+                position: absolute;
+                border: 1px solid rgb(226, 226, 226);
+            }
             svg{
                 height: 25px;
                 cursor: pointer;

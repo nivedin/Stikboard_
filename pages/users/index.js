@@ -30,7 +30,7 @@ const allUser = ({ users }) => {
 
     }, [])
 
-    console.log("userid", userId)
+    //console.log("userid", userId)
     const userListCards = () => (
 
         allUsers.filter((user) => { return user._id !== userId }).map((user, i) => {

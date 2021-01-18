@@ -2,6 +2,7 @@ import Link from 'next/link'
 import renderHTML from 'react-render-html'
 import moment from 'moment'
 import { API } from '../../config'
+import {Img} from 'react-image'
 
 
 const Card = ({ blog }) => {
@@ -30,6 +31,12 @@ const Card = ({ blog }) => {
         )
     }
 
+    const myComponent = () => (
+        <Img
+          src='/images/blank-profile-picture.webp'
+        />
+      )
+      
 
     return (
         <div className="lead py-2">
@@ -51,13 +58,20 @@ const Card = ({ blog }) => {
             </section>
             <div className="row">
                 <div className="col-md-12">
-                    <section className="mt-5 ">
-                    { `${API}/blog/photo/${blog.slug}` && <img className="img img-fluid " style={{ maxHeight: '300px', width: 'auto' }} src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} />}
+                    <section className="mt-3 ">
+                    {/* { `${API}/blog/photo/${blog.slug}` && <img className="img img-fluid " style={{ maxHeight: '300px', width: 'auto' }} src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} />} */}
+                    <Img
+                    className="img img-fluid "
+                    src={[`${API}/blog/photo/${blog.slug}`]}
+                    unloader={myComponent}
+                    style={{ maxHeight: '300px', width: 'auto' }}
+                    alt={blog.title}
+                  />
                     </section>
                 </div>
                 <div className="col-md-12">
-                    <section className="pt-4">
-                        <div className="pt-4 pb-4" style={{wordBreak:'break-all'}}>
+                    <section className="pt-3">
+                        <div className="pt-3 pb-4" style={{wordBreak:'break-all'}}>
                             {renderHTML(blog.excerpt)}
                         </div>
                         <Link href={`/blogs/${blog.slug}`}>
