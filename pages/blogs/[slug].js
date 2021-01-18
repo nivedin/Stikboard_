@@ -200,7 +200,7 @@ const SingleBlog = ({ blog, query }) => {
                                 <div className="row" style={{ height: '500px', width: '100%' }}>
                                     {/* <img src={`${API}/blog/photo/${blog.slug}`} alt={blog.title} className="img img-fluid featured-image" /> */}
                                     <Img
-                                        src={[`${API}/blog/photo/${blog.slug}`, "/images/blank-profile-picture.webp"]} unloader={myComponent} alt={blog.title} className="img img-fluid featured-image"
+                                        src={`${API}/blog/photo/${blog.slug}`} unloader={myComponent} alt={blog.title} className="img img-fluid featured-image"
                                     />
                                 </div>
                             </section>
