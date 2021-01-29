@@ -225,3 +225,21 @@ export const listSearch = (params) => {
     .catch(err => console.log(err));
 
 }
+
+export const rateBlog = (slug,rating,userId,token) => {
+    return fetch(`${API}/blog/rate`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            "Content-Type":'application/json',
+            Authorization:`Bearer ${token}`        
+        },
+        body: JSON.stringify({slug,rating,userId})
+    })
+        .then(response => {
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+
+}

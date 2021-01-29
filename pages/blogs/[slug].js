@@ -1,13 +1,14 @@
 import React from 'react'
-import Router from "next/router";
+import Router,{ useRouter } from "next/router";
 import Head from 'next/head'
 import Link from 'next/link'
 import renderHTML from 'react-render-html'
 import moment from 'moment'
+import Rating from 'react-rating'
 import Layout from '../../components/Layout'
 import ProfileLayout from '../../components/profile/ProfileLayout'
 import { useState, useEffect } from 'react'
-import { singleBlog, listRelated, likeBlog, unlikeBlog } from '../../actions/blog'
+import { singleBlog, listRelated, likeBlog, unlikeBlog,rateBlog } from '../../actions/blog'
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import SmallCard from '../../components/blog/SmallCard'
 import DisqusThread from '../../components/DisqusThread'
@@ -18,12 +19,16 @@ import Comment from '../../components/blog/Comment'
 
 const SingleBlog = ({ blog, query }) => {
 
+    const router = useRouter();
+
     const [related, setRelated] = useState([])
     const [likeValue, setLike] = useState({
         isLike: false,
         likes: 0
     })
     const [comments, setComments] = useState([])
+    const [rating, setRating] = useState([])
+    const [isRated, setIsRated] = useState(false)
 
     const { isLike, likes } = likeValue
 
@@ -37,8 +42,10 @@ const SingleBlog = ({ blog, query }) => {
         })
     }
 
+    let userId = isAuth() && isAuth()._id;
+
     const loadLike = () => {
-        let userId = isAuth() && isAuth()._id;
+        
         //let userLiked = blog.likes.indexOf(userId) !== -1
         const match = blog.likes.find(user => {
             return user._id === userId
@@ -64,6 +71,30 @@ const SingleBlog = ({ blog, query }) => {
     const loadComments = () => {
         setComments(blog.comments)
     }
+    const loadRatings = () => {
+        console.log(blog.ratings);
+
+        // blog.ratings.find(rating => {
+        //     if(rating.ratedBy._id === userId ){
+        //         setRating(rating.rate)
+        //         setIsRated(true)
+        //         console.log("userfound");
+        //     }else{
+        //         console.log("user not found");
+        //         setIsRated(false)
+        //     }
+        // })
+        let ratedUser = blog.ratings.find(rating => rating.ratedBy._id === userId)
+        if(ratedUser){
+                    setRating(ratedUser.rate)
+                    setIsRated(true)
+                    //console.log("userfound");
+                }else{
+                    console.log("user not found");
+                    setRating()
+                    setIsRated(false)
+                }
+    }
 
     useEffect(() => {
         !isAuth() && Router.push(`/signin`)
@@ -73,9 +104,10 @@ const SingleBlog = ({ blog, query }) => {
         loadLike()
         loadComments()
         loadRelated()
-    }, [])
+        loadRatings()
+    }, [router.asPath])
 
-   
+    //console.log("Userrated",rating);
 
     const head = () => (
         <Head>
@@ -152,16 +184,14 @@ const SingleBlog = ({ blog, query }) => {
         )
     }
 
-    // console.log("blogDetails", blog);
-    // console.log("isLikedUser", isLike);
-    // console.log("userDetails", isAuth());
-    // console.log("query", query);
-
     const myComponent = () => (
         <Img
             src='/images/blank-profile-picture.webp'
         />
     )
+
+    const token = getCookie('token');
+
 
     const likeToggle = () => {
         if (!isAuth()) {
@@ -169,7 +199,6 @@ const SingleBlog = ({ blog, query }) => {
         } else {
             let callApi = isLike ? unlikeBlog : likeBlog
             const userId = isAuth()._id;
-            const token = getCookie('token');
             const slug = query.slug;
             //console.log(userId, token, slug);
 
@@ -186,7 +215,24 @@ const SingleBlog = ({ blog, query }) => {
                 }
             })
         }
+    }
 
+    const handleRating = (blogRate) => {
+        console.log(blogRate);
+        setRating(blogRate)
+        const userId = isAuth()._id;
+        const slug = query.slug;
+        let rating = { rate : blogRate}
+        rateBlog(slug,rating,userId,token).then(data => {
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                
+                setIsRated(true)
+                console.log(data);
+               
+            }
+        })
     }
 
     return (
@@ -247,6 +293,17 @@ const SingleBlog = ({ blog, query }) => {
                             </div>
                         </div>
 
+                        <div className="container my-4">
+                             <Rating
+                            initialRating={rating}
+                            emptySymbol="far fa-star fa-2x medium"
+                            fullSymbol="fas fa-star fa-2x medium"
+                            fractions={2}
+                            onClick={handleRating}
+                            readonly={isRated}
+                            />
+                    
+                        </div>
 
                         <div className="container pt-5">
                             {showComments()}

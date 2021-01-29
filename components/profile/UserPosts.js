@@ -24,6 +24,7 @@ const UserPosts = () => {
             else {
                 isLoading(false)
                 setBlogs(data.blogs)
+                console.log(data);
             }
         })
 
