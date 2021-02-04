@@ -6,7 +6,7 @@ import moment from 'moment'
 import Layout from '../../components/Layout'
 import ProfileLayout from '../../components/profile/ProfileLayout'
 import { useState, useEffect } from 'react'
-import { userPublicProfile, follow, unfollow } from '../../actions/user'
+import { userPublicProfile, follow, unfollow,userPublicProfileRating } from '../../actions/user'
 import { getCookie, isAuth } from '../../actions/auth';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config'
 import ContactForm from '../../components/form/ContactForm'
@@ -24,6 +24,8 @@ const UserProfile = ({ user, blogs, query }) => {
     const [modal2, setModal2] = useState(false);
     const toggle2 = () => setModal2(!modal2);
 
+    const [rating, setRating] = useState(0);
+
     const init = (user) => {
         // console.log("user", user);
         // console.log("loggeduser", isAuth());
@@ -34,7 +36,6 @@ const UserProfile = ({ user, blogs, query }) => {
                 return follower._id === isAuth()._id
             })
             //console.log("follow", match);
-    
             if (match) {
                 // console.log("follow", match)
                 changeFollowing(true)
@@ -42,8 +43,31 @@ const UserProfile = ({ user, blogs, query }) => {
                 changeFollowing(false)
             }
         }
-       
 
+        userPublicProfileRating(user.username).then(data => {
+            if (data.error) {
+                console.log(data.error);
+            }
+            else {
+                console.log(data.blogs);
+                let totalLength = 0;
+                let totalRate = 0;
+                
+                data.blogs.map((blog) => {
+                    totalLength = totalLength + blog.ratings.length;
+
+                    blog.ratings.map((rating) => {
+                        totalRate = totalRate + rating.rate;
+                       console.log("lenght",totalLength);
+                       console.log("rate",totalRate);
+                        // console.log("blog_rate",rating.rate,blog_index,i);
+                        // console.log("blog_index",blog_index);
+                    })
+                })
+                setRating(totalRate/(totalLength))
+
+            }
+        })
     }
 
     const [following, changeFollowing] = useState(false)
@@ -57,7 +81,9 @@ const UserProfile = ({ user, blogs, query }) => {
 
     useEffect(() => {
         init(user)
-
+        // userPublicProfileRating(isAuth().username).then(data => {
+        //     console.log(data);
+        // })
     }, [])
 
     const head = () => (
@@ -201,18 +227,19 @@ const UserProfile = ({ user, blogs, query }) => {
                                                 alt="user profile"
                                             />
                                         </div>
-                                        <div className="col-md-4">
+                                        <div className="col-md-3">
                                             <h5>{user.name}</h5>
                                             <h6 className="text-muted">@{user.username}</h6>
                                             {/* {console.log(user)} */}
                                             {/* <p className="text-muted"><small>  Joined {moment(user.createdAt).fromNow()}</small></p> */}
                                             <p className="mt-4">{user.about ? <q>{user.about}</q> : ""}</p>
                                         </div>
-                                        <div className="col-md-5">
+                                        <div className="col-md-6">
                                             <div className="followUnfollowList" style={{ display: 'flex' }}>
                                                 <p><span>{blogs.length}</span><span>Posts</span></p>
                                                 <p><span onClick={toggle1}>{followers ? followers.length : '0'}</span><span>Followers</span></p>
                                                 <p><span onClick={toggle2}>{followings ? followings.length : '0'}</span><span>Following</span></p>
+                                                <p><span>{rating ? Math.round((rating + Number.EPSILON) * 10) / 10 : '0'}</span><span>Rating</span></p>
                                             </div>
                                             <FollowProfileBtn following={following} onButtonClick={clickFollowButton} />
                                         </div>

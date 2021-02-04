@@ -3,7 +3,7 @@ import UserSinglePost from './UserSinglePost'
 import { API, APP_NAME } from '../../config';
 import { useState, useEffect } from 'react';
 import { getCookie, isAuth } from '../../actions/auth'
-import { getProfile, userPublicProfile } from '../../actions/user';
+import { getProfile, userPublicProfile,userPublicProfileRating } from '../../actions/user';
 import Loader from '../Loader'
 import './css/profile.css'
 
@@ -24,7 +24,7 @@ const UserPosts = () => {
             else {
                 isLoading(false)
                 setBlogs(data.blogs)
-                console.log(data);
+                //console.log(data);
             }
         })
 

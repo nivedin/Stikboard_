@@ -72,7 +72,7 @@ const SingleBlog = ({ blog, query }) => {
         setComments(blog.comments)
     }
     const loadRatings = () => {
-        console.log(blog.ratings);
+        //console.log(blog.ratings);
 
         // blog.ratings.find(rating => {
         //     if(rating.ratedBy._id === userId ){
@@ -101,6 +101,7 @@ const SingleBlog = ({ blog, query }) => {
     },[])
 
     useEffect(() => {
+        console.log(blog);
         loadLike()
         loadComments()
         loadRelated()
@@ -218,7 +219,7 @@ const SingleBlog = ({ blog, query }) => {
     }
 
     const handleRating = (blogRate) => {
-        console.log(blogRate);
+        // console.log(blogRate);
         setRating(blogRate)
         const userId = isAuth()._id;
         const slug = query.slug;
@@ -229,7 +230,7 @@ const SingleBlog = ({ blog, query }) => {
             } else {
                 
                 setIsRated(true)
-                console.log(data);
+                // console.log(data);
                
             }
         })

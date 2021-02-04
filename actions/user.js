@@ -98,5 +98,15 @@ export const unfollow= (userId,token,unfollowId) => {
         .catch(err => console.log(err));
 };
 
-
-
+export const userPublicProfileRating = (username) => {
+    return fetch(`${API}/users/${username}`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json'
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

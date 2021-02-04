@@ -2,7 +2,7 @@ import React from 'react'
 import { API, APP_NAME } from '../../config';
 import { useState, useEffect } from 'react';
 import { getCookie, isAuth } from '../../actions/auth'
-import { getProfile, userPublicProfile } from '../../actions/user';
+import { getProfile, userPublicProfile,userPublicProfileRating } from '../../actions/user';
 import Link from 'next/link'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
@@ -42,6 +42,8 @@ const UserDetails = () => {
 
     const [modal2, setModal2] = useState(false);
     const toggle2 = () => setModal2(!modal2);
+
+    const [rating, setRating] = useState(0);
 
     const token = getCookie('token');
 
@@ -96,7 +98,34 @@ const UserDetails = () => {
                 })
             }
         })
+
+        userPublicProfileRating(isAuth().username).then(data => {
+            if (data.error) {
+                console.log(data.error);
+            }
+            else {
+                console.log(data.blogs);
+                let totalLength = 0;
+                let totalRate = 0;
+                
+                data.blogs.map((blog) => {
+                    totalLength = totalLength + blog.ratings.length;
+
+                    blog.ratings.map((rating) => {
+                        totalRate = totalRate + rating.rate;
+                       
+                        // console.log("blog_rate",rating.rate,blog_index,i);
+                        // console.log("blog_index",blog_index);
+                    })
+                })
+                setRating(totalRate/(totalLength))
+
+            }
+        })
+
     };
+
+    console.log(Math.round((rating + Number.EPSILON) * 10) / 10);
 
     //console.log("allFollow",allFollowers,allFollowings);
 
@@ -216,6 +245,7 @@ const UserDetails = () => {
                             <p className="noPosts"><span>{allBlogs.length}</span><span>Posts</span></p>
                             <p className="noPosts"><span onClick={toggle1}>{followers ? followers.length : '0'}</span><span>Followers</span></p>
                             <p className="noPosts"><span onClick={toggle2}>{followings ? followings.length : '0'}</span><span>Following</span></p>
+                            <p className="noPosts"><span >{rating ? Math.round((rating + Number.EPSILON) * 10) / 10 : '0'}</span><span>Rating</span></p>
                         </div>
                     </div>
                 </div>
