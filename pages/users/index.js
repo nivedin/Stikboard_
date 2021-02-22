@@ -12,6 +12,8 @@ import UserListCard from '../../components/users/userListCard'
 
 const allUser = ({ users }) => {
 
+
+    
     const [userId, setUserId] = useState("")
     const [allUsers, setAllUsers] = useState([])
 

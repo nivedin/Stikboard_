@@ -21,12 +21,19 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import Search from './blog/Search'
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../features/userSlice';
 
 Router.onRouteChangeStart = url => NProgress.start()
 Router.onRouteChangeComplete = url => NProgress.done()
 Router.onRouteChangeError = url => NProgress.done()
 
 const Header = (props) => {
+  
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [navbar, setNavbar] = useState(false)
 
@@ -53,9 +60,14 @@ const Header = (props) => {
   />
 )
 
+const handleSignout = () => {
+  dispatch(logout())
+  signout(() => Router.replace(`/signin`))
+}
+
 
 // const noImg = '/images/blank-profile-picture.webp'
-
+//console.log(user)
 
   return (
     <React.Fragment>
@@ -112,7 +124,7 @@ const Header = (props) => {
                 <React.Fragment>
                 <Link href="/user">
                           <NavLink style={{ cursor: 'pointer',minWidth:'fit-content' }}>
-                            {`${isAuth().name}`}'s Dashboard
+                            {`${user?.name}`}'s Dashboard
                           </NavLink>
                         </Link>
                 </React.Fragment>
@@ -178,7 +190,7 @@ const Header = (props) => {
                   <DropdownItem>
                     {isAuth() && (
                      
-                        <NavLink style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
+                        <NavLink style={{ cursor: 'pointer' }} onClick={handleSignout}>
                           Logout
                         </NavLink>
                      

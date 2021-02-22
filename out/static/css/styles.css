@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#nprogress .bar {
+  height: 5px !important;
+  background: #640064 !important;
+}
+
+.ql-editor {
+  min-height: 300px;
+}
+
+a {
+  text-decoration: none !important;
+  color: black;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+.featured-image {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.navbar-expand-md .navbar-nav {
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.navBar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navBar .navLogo {
+  height: 56px !important;
+  width: 240px;
+}
+
+.navBar .navLogo img {
+  -webkit-transform: translate(-50px, -50px);
+          transform: translate(-50px, -50px);
+  height: 369%;
+  width: 156%;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.navBar .nav-link {
+  color: black !important;
+}
+
+.navBar .nav-item {
+  margin-right: 25px;
+}
+
+.navBar .getStartedBtn {
+  color: #ebebeb !important;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 3px;
+  min-width: 7rem;
+  background: #470047;
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.884) !important;
+  -webkit-box-shadow: 0 5px 12px -9px #6f6f6f !important;
+          box-shadow: 0 5px 12px -9px #6f6f6f !important;
+}
+
+.searchBg {
+  background: white;
+  padding: 2%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+}
+
+.searchBg .searchTab {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: transparent;
+  border-bottom: 2px solid black;
+}
+
+.searchContainer input {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  color: black;
+}
+
+.searchContainer input::-webkit-input-placeholder {
+  color: #4d4d4d;
+}
+
+.searchContainer input:-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+.searchContainer input::-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+.searchContainer input::placeholder {
+  color: #4d4d4d;
+}
+
+.searchContainer input:focus {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.searchContainer .searchBtn {
+  padding: 1% 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #464646;
+}
+
+.searchContainer .searchBtn:hover {
+  color: purple;
+}
+
+.blogBody {
+  word-break: break-all;
+}
+
+.blogBody img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.blogUsername {
+  position: relative;
+}
+
+.blogUsername::after {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #381750;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.blogUsername:hover::after {
+  width: 0;
+}
+
+.imagePreview {
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.imagePreview img {
+  height: 100%;
+  width: 100%;
+}
+
+.followUnfollowList p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.followUnfollowList p span:nth-child(1) {
+  font-size: 1.9rem;
+  color: #2c2c2c;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.followUnfollowList p span:nth-child(2) {
+  color: #969696;
+  font-weight: 500;
+}
+
+.userProfTabView p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfTabView p span:nth-child(2) {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.userProfTabView p span:nth-child(2) span:nth-child(1) {
+  font-weight: 500;
+}
+
+.userProfTabView p span:nth-child(2) span:nth-child(2) {
+  margin-left: 0;
+  font-size: 0.8rem;
+  color: #505050;
+}
+
+.userSearch {
+  padding: 0 2%;
+}
+
+.userSearch .userProfTabView {
+  padding: 2.5% 2%;
+}
+
+.userSearchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 2px solid #dddddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.userSearchBar input {
+  width: 80%;
+  border: none;
+}
+
+.userSearchBar input::-webkit-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input:-ms-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input::-ms-input-placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input::placeholder {
+  font-weight: 500;
+  color: #929292;
+}
+
+.userSearchBar input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.userSearchBar button {
+  width: 20%;
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border-radius: 5px;
+}
+
+.userSearchBar button:hover {
+  background: #381750;
+}
+
+.userSearchBar button:hover svg {
+  color: #ffffff;
+}
+
+.mobSearchView {
+  display: none !important;
+}
+
+.commentNumber {
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 2%;
+  background: #f0f0f0;
+}
+
+.commentBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.commentBar input {
+  border: none;
+  border-bottom: 2px solid #6d1ea5;
+  outline: none;
+  width: 80%;
+  padding: 2% 0;
+  font-weight: 500;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.commentBar input::-webkit-input-placeholder {
+  font-weight: 500;
+}
+
+.commentBar input:-ms-input-placeholder {
+  font-weight: 500;
+}
+
+.commentBar input::-ms-input-placeholder {
+  font-weight: 500;
+}
+
+.commentBar input::placeholder {
+  font-weight: 500;
+}
+
+.commentBar input:focus {
+  border: none;
+  border-bottom: 2px solid #381750;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.commentBar button {
+  margin-left: 10px;
+  height: 40px;
+  border: 2px solid #381750;
+  outline: none;
+  background: #381750;
+  padding: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 4px;
+  font-weight: 500;
+  color: white;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.commentBar button:hover {
+  opacity: 0.9;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.commentDisplay {
+  border-radius: 8px;
+  margin: 20px 0;
+  padding: 1.5% 2%;
+  box-shadow: 1px 6px 20px -10px rgba(119, 119, 119, 0.75);
+  -webkit-box-shadow: 1px 6px 20px -10px rgba(119, 119, 119, 0.75);
+  -moz-box-shadow: 1px 6px 20px -10px rgba(119, 119, 119, 0.75);
+}
+
+.commentDisplay .userDetailDelete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.commentDisplay .userDetailDelete button {
+  height: 16px;
+  width: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: red;
+}
+
+.commentDisplay .photoNameUserDate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.commentDisplay .photoNameUserDate .nameUserDateContainer {
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 1.5;
+}
+
+.commentDisplay .photoNameUserDate .nameUserDateContainer span:nth-child(1) {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.commentDisplay .photoNameUserDate .nameUserDateContainer span:nth-child(2) {
+  font-weight: 500;
+  color: #969696;
+  font-size: 0.95rem;
+}
+
+.commentDisplay .photoNameUserDate .nameUserDateContainer span:nth-child(3) {
+  font-weight: 500;
+  color: #979797;
+  font-size: 0.75rem;
+}
+
+.commentDisplay .commentTextContainer {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.profImageDate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profImageDate p {
+  margin: 0;
+}
+
+.profImageDate .profImage {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profImageDate .profImage img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.profImageDate .userNameDate .userName {
+  font-weight: 500;
+}
+
+.profImageDate .userNameDate .postDate {
+  font-size: 0.8rem;
+  color: #868686;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 720px) {
+  .mobSearchView {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .deskSearchView {
+    display: none;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

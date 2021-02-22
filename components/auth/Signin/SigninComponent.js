@@ -8,9 +8,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Spinner } from 'reactstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import './signIn.css';
+import { useDispatch } from "react-redux";
+import { login } from "../../../features/userSlice";
 
 
 const SigninComponent = () => {
+
+    const dispatch = useDispatch();
+
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -38,8 +43,11 @@ const SigninComponent = () => {
             } else {
                 authenticate(data,() => {
                     if (isAuth() && isAuth().role === "admin") {
+
                         Router.push(`/admin`);
                     }else{
+                        //console.log(data)
+                        dispatch(login(data.user))
                         Router.push(`/user`);
                     }
 
